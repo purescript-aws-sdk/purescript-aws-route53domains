@@ -1,0 +1,1 @@
+# purescript-aws-route53domains
