@@ -5,7 +5,6 @@ import Prelude
 import Data.Foreign.Class (class Decode, class Encode)
 import Data.Foreign.Generic (defaultOptions, genericDecode, genericEncode)
 import Data.Foreign.Generic.Types (Options)
-import Data.Foreign.NullOrUndefined (NullOrUndefined(..))
 import Data.Generic.Rep (class Generic)
 import Data.Generic.Rep.Show (genericShow)
 import Data.Maybe (Maybe(..))
@@ -29,11 +28,11 @@ instance encodeAddressLine :: Encode AddressLine where encode = genericEncode op
 
 -- | <p>Information for one billing record.</p>
 newtype BillingRecord = BillingRecord 
-  { "DomainName" :: NullOrUndefined (DomainName)
-  , "Operation" :: NullOrUndefined (OperationType)
-  , "InvoiceId" :: NullOrUndefined (InvoiceId)
-  , "BillDate" :: NullOrUndefined (Types.Timestamp)
-  , "Price" :: NullOrUndefined (Price)
+  { "DomainName" :: Maybe (DomainName)
+  , "Operation" :: Maybe (OperationType)
+  , "InvoiceId" :: Maybe (InvoiceId)
+  , "BillDate" :: Maybe (Types.Timestamp)
+  , "Price" :: Maybe (Price)
   }
 derive instance newtypeBillingRecord :: Newtype BillingRecord _
 derive instance repGenericBillingRecord :: Generic BillingRecord _
@@ -43,12 +42,12 @@ instance encodeBillingRecord :: Encode BillingRecord where encode = genericEncod
 
 -- | Constructs BillingRecord from required parameters
 newBillingRecord :: BillingRecord
-newBillingRecord  = BillingRecord { "BillDate": (NullOrUndefined Nothing), "DomainName": (NullOrUndefined Nothing), "InvoiceId": (NullOrUndefined Nothing), "Operation": (NullOrUndefined Nothing), "Price": (NullOrUndefined Nothing) }
+newBillingRecord  = BillingRecord { "BillDate": Nothing, "DomainName": Nothing, "InvoiceId": Nothing, "Operation": Nothing, "Price": Nothing }
 
 -- | Constructs BillingRecord's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newBillingRecord' :: ( { "DomainName" :: NullOrUndefined (DomainName) , "Operation" :: NullOrUndefined (OperationType) , "InvoiceId" :: NullOrUndefined (InvoiceId) , "BillDate" :: NullOrUndefined (Types.Timestamp) , "Price" :: NullOrUndefined (Price) } -> {"DomainName" :: NullOrUndefined (DomainName) , "Operation" :: NullOrUndefined (OperationType) , "InvoiceId" :: NullOrUndefined (InvoiceId) , "BillDate" :: NullOrUndefined (Types.Timestamp) , "Price" :: NullOrUndefined (Price) } ) -> BillingRecord
-newBillingRecord'  customize = (BillingRecord <<< customize) { "BillDate": (NullOrUndefined Nothing), "DomainName": (NullOrUndefined Nothing), "InvoiceId": (NullOrUndefined Nothing), "Operation": (NullOrUndefined Nothing), "Price": (NullOrUndefined Nothing) }
+newBillingRecord' :: ( { "DomainName" :: Maybe (DomainName) , "Operation" :: Maybe (OperationType) , "InvoiceId" :: Maybe (InvoiceId) , "BillDate" :: Maybe (Types.Timestamp) , "Price" :: Maybe (Price) } -> {"DomainName" :: Maybe (DomainName) , "Operation" :: Maybe (OperationType) , "InvoiceId" :: Maybe (InvoiceId) , "BillDate" :: Maybe (Types.Timestamp) , "Price" :: Maybe (Price) } ) -> BillingRecord
+newBillingRecord'  customize = (BillingRecord <<< customize) { "BillDate": Nothing, "DomainName": Nothing, "InvoiceId": Nothing, "Operation": Nothing, "Price": Nothing }
 
 
 
@@ -64,7 +63,7 @@ instance encodeBillingRecords :: Encode BillingRecords where encode = genericEnc
 -- | <p>The CheckDomainAvailability request contains the following elements.</p>
 newtype CheckDomainAvailabilityRequest = CheckDomainAvailabilityRequest 
   { "DomainName" :: (DomainName)
-  , "IdnLangCode" :: NullOrUndefined (LangCode)
+  , "IdnLangCode" :: Maybe (LangCode)
   }
 derive instance newtypeCheckDomainAvailabilityRequest :: Newtype CheckDomainAvailabilityRequest _
 derive instance repGenericCheckDomainAvailabilityRequest :: Generic CheckDomainAvailabilityRequest _
@@ -74,12 +73,12 @@ instance encodeCheckDomainAvailabilityRequest :: Encode CheckDomainAvailabilityR
 
 -- | Constructs CheckDomainAvailabilityRequest from required parameters
 newCheckDomainAvailabilityRequest :: DomainName -> CheckDomainAvailabilityRequest
-newCheckDomainAvailabilityRequest _DomainName = CheckDomainAvailabilityRequest { "DomainName": _DomainName, "IdnLangCode": (NullOrUndefined Nothing) }
+newCheckDomainAvailabilityRequest _DomainName = CheckDomainAvailabilityRequest { "DomainName": _DomainName, "IdnLangCode": Nothing }
 
 -- | Constructs CheckDomainAvailabilityRequest's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newCheckDomainAvailabilityRequest' :: DomainName -> ( { "DomainName" :: (DomainName) , "IdnLangCode" :: NullOrUndefined (LangCode) } -> {"DomainName" :: (DomainName) , "IdnLangCode" :: NullOrUndefined (LangCode) } ) -> CheckDomainAvailabilityRequest
-newCheckDomainAvailabilityRequest' _DomainName customize = (CheckDomainAvailabilityRequest <<< customize) { "DomainName": _DomainName, "IdnLangCode": (NullOrUndefined Nothing) }
+newCheckDomainAvailabilityRequest' :: DomainName -> ( { "DomainName" :: (DomainName) , "IdnLangCode" :: Maybe (LangCode) } -> {"DomainName" :: (DomainName) , "IdnLangCode" :: Maybe (LangCode) } ) -> CheckDomainAvailabilityRequest
+newCheckDomainAvailabilityRequest' _DomainName customize = (CheckDomainAvailabilityRequest <<< customize) { "DomainName": _DomainName, "IdnLangCode": Nothing }
 
 
 
@@ -107,7 +106,7 @@ newCheckDomainAvailabilityResponse' _Availability customize = (CheckDomainAvaila
 -- | <p>The CheckDomainTransferability request contains the following elements.</p>
 newtype CheckDomainTransferabilityRequest = CheckDomainTransferabilityRequest 
   { "DomainName" :: (DomainName)
-  , "AuthCode" :: NullOrUndefined (DomainAuthCode)
+  , "AuthCode" :: Maybe (DomainAuthCode)
   }
 derive instance newtypeCheckDomainTransferabilityRequest :: Newtype CheckDomainTransferabilityRequest _
 derive instance repGenericCheckDomainTransferabilityRequest :: Generic CheckDomainTransferabilityRequest _
@@ -117,12 +116,12 @@ instance encodeCheckDomainTransferabilityRequest :: Encode CheckDomainTransferab
 
 -- | Constructs CheckDomainTransferabilityRequest from required parameters
 newCheckDomainTransferabilityRequest :: DomainName -> CheckDomainTransferabilityRequest
-newCheckDomainTransferabilityRequest _DomainName = CheckDomainTransferabilityRequest { "DomainName": _DomainName, "AuthCode": (NullOrUndefined Nothing) }
+newCheckDomainTransferabilityRequest _DomainName = CheckDomainTransferabilityRequest { "DomainName": _DomainName, "AuthCode": Nothing }
 
 -- | Constructs CheckDomainTransferabilityRequest's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newCheckDomainTransferabilityRequest' :: DomainName -> ( { "DomainName" :: (DomainName) , "AuthCode" :: NullOrUndefined (DomainAuthCode) } -> {"DomainName" :: (DomainName) , "AuthCode" :: NullOrUndefined (DomainAuthCode) } ) -> CheckDomainTransferabilityRequest
-newCheckDomainTransferabilityRequest' _DomainName customize = (CheckDomainTransferabilityRequest <<< customize) { "DomainName": _DomainName, "AuthCode": (NullOrUndefined Nothing) }
+newCheckDomainTransferabilityRequest' :: DomainName -> ( { "DomainName" :: (DomainName) , "AuthCode" :: Maybe (DomainAuthCode) } -> {"DomainName" :: (DomainName) , "AuthCode" :: Maybe (DomainAuthCode) } ) -> CheckDomainTransferabilityRequest
+newCheckDomainTransferabilityRequest' _DomainName customize = (CheckDomainTransferabilityRequest <<< customize) { "DomainName": _DomainName, "AuthCode": Nothing }
 
 
 
@@ -158,20 +157,20 @@ instance encodeCity :: Encode City where encode = genericEncode options
 
 -- | <p>ContactDetail includes the following elements.</p>
 newtype ContactDetail = ContactDetail 
-  { "FirstName" :: NullOrUndefined (ContactName)
-  , "LastName" :: NullOrUndefined (ContactName)
-  , "ContactType" :: NullOrUndefined (ContactType)
-  , "OrganizationName" :: NullOrUndefined (ContactName)
-  , "AddressLine1" :: NullOrUndefined (AddressLine)
-  , "AddressLine2" :: NullOrUndefined (AddressLine)
-  , "City" :: NullOrUndefined (City)
-  , "State" :: NullOrUndefined (State)
-  , "CountryCode" :: NullOrUndefined (CountryCode)
-  , "ZipCode" :: NullOrUndefined (ZipCode)
-  , "PhoneNumber" :: NullOrUndefined (ContactNumber)
-  , "Email" :: NullOrUndefined (Email)
-  , "Fax" :: NullOrUndefined (ContactNumber)
-  , "ExtraParams" :: NullOrUndefined (ExtraParamList)
+  { "FirstName" :: Maybe (ContactName)
+  , "LastName" :: Maybe (ContactName)
+  , "ContactType" :: Maybe (ContactType)
+  , "OrganizationName" :: Maybe (ContactName)
+  , "AddressLine1" :: Maybe (AddressLine)
+  , "AddressLine2" :: Maybe (AddressLine)
+  , "City" :: Maybe (City)
+  , "State" :: Maybe (State)
+  , "CountryCode" :: Maybe (CountryCode)
+  , "ZipCode" :: Maybe (ZipCode)
+  , "PhoneNumber" :: Maybe (ContactNumber)
+  , "Email" :: Maybe (Email)
+  , "Fax" :: Maybe (ContactNumber)
+  , "ExtraParams" :: Maybe (ExtraParamList)
   }
 derive instance newtypeContactDetail :: Newtype ContactDetail _
 derive instance repGenericContactDetail :: Generic ContactDetail _
@@ -181,12 +180,12 @@ instance encodeContactDetail :: Encode ContactDetail where encode = genericEncod
 
 -- | Constructs ContactDetail from required parameters
 newContactDetail :: ContactDetail
-newContactDetail  = ContactDetail { "AddressLine1": (NullOrUndefined Nothing), "AddressLine2": (NullOrUndefined Nothing), "City": (NullOrUndefined Nothing), "ContactType": (NullOrUndefined Nothing), "CountryCode": (NullOrUndefined Nothing), "Email": (NullOrUndefined Nothing), "ExtraParams": (NullOrUndefined Nothing), "Fax": (NullOrUndefined Nothing), "FirstName": (NullOrUndefined Nothing), "LastName": (NullOrUndefined Nothing), "OrganizationName": (NullOrUndefined Nothing), "PhoneNumber": (NullOrUndefined Nothing), "State": (NullOrUndefined Nothing), "ZipCode": (NullOrUndefined Nothing) }
+newContactDetail  = ContactDetail { "AddressLine1": Nothing, "AddressLine2": Nothing, "City": Nothing, "ContactType": Nothing, "CountryCode": Nothing, "Email": Nothing, "ExtraParams": Nothing, "Fax": Nothing, "FirstName": Nothing, "LastName": Nothing, "OrganizationName": Nothing, "PhoneNumber": Nothing, "State": Nothing, "ZipCode": Nothing }
 
 -- | Constructs ContactDetail's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newContactDetail' :: ( { "FirstName" :: NullOrUndefined (ContactName) , "LastName" :: NullOrUndefined (ContactName) , "ContactType" :: NullOrUndefined (ContactType) , "OrganizationName" :: NullOrUndefined (ContactName) , "AddressLine1" :: NullOrUndefined (AddressLine) , "AddressLine2" :: NullOrUndefined (AddressLine) , "City" :: NullOrUndefined (City) , "State" :: NullOrUndefined (State) , "CountryCode" :: NullOrUndefined (CountryCode) , "ZipCode" :: NullOrUndefined (ZipCode) , "PhoneNumber" :: NullOrUndefined (ContactNumber) , "Email" :: NullOrUndefined (Email) , "Fax" :: NullOrUndefined (ContactNumber) , "ExtraParams" :: NullOrUndefined (ExtraParamList) } -> {"FirstName" :: NullOrUndefined (ContactName) , "LastName" :: NullOrUndefined (ContactName) , "ContactType" :: NullOrUndefined (ContactType) , "OrganizationName" :: NullOrUndefined (ContactName) , "AddressLine1" :: NullOrUndefined (AddressLine) , "AddressLine2" :: NullOrUndefined (AddressLine) , "City" :: NullOrUndefined (City) , "State" :: NullOrUndefined (State) , "CountryCode" :: NullOrUndefined (CountryCode) , "ZipCode" :: NullOrUndefined (ZipCode) , "PhoneNumber" :: NullOrUndefined (ContactNumber) , "Email" :: NullOrUndefined (Email) , "Fax" :: NullOrUndefined (ContactNumber) , "ExtraParams" :: NullOrUndefined (ExtraParamList) } ) -> ContactDetail
-newContactDetail'  customize = (ContactDetail <<< customize) { "AddressLine1": (NullOrUndefined Nothing), "AddressLine2": (NullOrUndefined Nothing), "City": (NullOrUndefined Nothing), "ContactType": (NullOrUndefined Nothing), "CountryCode": (NullOrUndefined Nothing), "Email": (NullOrUndefined Nothing), "ExtraParams": (NullOrUndefined Nothing), "Fax": (NullOrUndefined Nothing), "FirstName": (NullOrUndefined Nothing), "LastName": (NullOrUndefined Nothing), "OrganizationName": (NullOrUndefined Nothing), "PhoneNumber": (NullOrUndefined Nothing), "State": (NullOrUndefined Nothing), "ZipCode": (NullOrUndefined Nothing) }
+newContactDetail' :: ( { "FirstName" :: Maybe (ContactName) , "LastName" :: Maybe (ContactName) , "ContactType" :: Maybe (ContactType) , "OrganizationName" :: Maybe (ContactName) , "AddressLine1" :: Maybe (AddressLine) , "AddressLine2" :: Maybe (AddressLine) , "City" :: Maybe (City) , "State" :: Maybe (State) , "CountryCode" :: Maybe (CountryCode) , "ZipCode" :: Maybe (ZipCode) , "PhoneNumber" :: Maybe (ContactNumber) , "Email" :: Maybe (Email) , "Fax" :: Maybe (ContactNumber) , "ExtraParams" :: Maybe (ExtraParamList) } -> {"FirstName" :: Maybe (ContactName) , "LastName" :: Maybe (ContactName) , "ContactType" :: Maybe (ContactType) , "OrganizationName" :: Maybe (ContactName) , "AddressLine1" :: Maybe (AddressLine) , "AddressLine2" :: Maybe (AddressLine) , "City" :: Maybe (City) , "State" :: Maybe (State) , "CountryCode" :: Maybe (CountryCode) , "ZipCode" :: Maybe (ZipCode) , "PhoneNumber" :: Maybe (ContactNumber) , "Email" :: Maybe (Email) , "Fax" :: Maybe (ContactNumber) , "ExtraParams" :: Maybe (ExtraParamList) } ) -> ContactDetail
+newContactDetail'  customize = (ContactDetail <<< customize) { "AddressLine1": Nothing, "AddressLine2": Nothing, "City": Nothing, "ContactType": Nothing, "CountryCode": Nothing, "Email": Nothing, "ExtraParams": Nothing, "Fax": Nothing, "FirstName": Nothing, "LastName": Nothing, "OrganizationName": Nothing, "PhoneNumber": Nothing, "State": Nothing, "ZipCode": Nothing }
 
 
 
@@ -366,7 +365,7 @@ instance encodeDomainAvailability :: Encode DomainAvailability where encode = ge
 
 -- | <p>The number of domains has exceeded the allowed threshold for the account.</p>
 newtype DomainLimitExceeded = DomainLimitExceeded 
-  { "message" :: NullOrUndefined (ErrorMessage)
+  { "message" :: Maybe (ErrorMessage)
   }
 derive instance newtypeDomainLimitExceeded :: Newtype DomainLimitExceeded _
 derive instance repGenericDomainLimitExceeded :: Generic DomainLimitExceeded _
@@ -376,12 +375,12 @@ instance encodeDomainLimitExceeded :: Encode DomainLimitExceeded where encode = 
 
 -- | Constructs DomainLimitExceeded from required parameters
 newDomainLimitExceeded :: DomainLimitExceeded
-newDomainLimitExceeded  = DomainLimitExceeded { "message": (NullOrUndefined Nothing) }
+newDomainLimitExceeded  = DomainLimitExceeded { "message": Nothing }
 
 -- | Constructs DomainLimitExceeded's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newDomainLimitExceeded' :: ( { "message" :: NullOrUndefined (ErrorMessage) } -> {"message" :: NullOrUndefined (ErrorMessage) } ) -> DomainLimitExceeded
-newDomainLimitExceeded'  customize = (DomainLimitExceeded <<< customize) { "message": (NullOrUndefined Nothing) }
+newDomainLimitExceeded' :: ( { "message" :: Maybe (ErrorMessage) } -> {"message" :: Maybe (ErrorMessage) } ) -> DomainLimitExceeded
+newDomainLimitExceeded'  customize = (DomainLimitExceeded <<< customize) { "message": Nothing }
 
 
 
@@ -414,8 +413,8 @@ instance encodeDomainStatusList :: Encode DomainStatusList where encode = generi
 
 -- | <p>Information about one suggested domain name.</p>
 newtype DomainSuggestion = DomainSuggestion 
-  { "DomainName" :: NullOrUndefined (DomainName)
-  , "Availability" :: NullOrUndefined (String)
+  { "DomainName" :: Maybe (DomainName)
+  , "Availability" :: Maybe (String)
   }
 derive instance newtypeDomainSuggestion :: Newtype DomainSuggestion _
 derive instance repGenericDomainSuggestion :: Generic DomainSuggestion _
@@ -425,12 +424,12 @@ instance encodeDomainSuggestion :: Encode DomainSuggestion where encode = generi
 
 -- | Constructs DomainSuggestion from required parameters
 newDomainSuggestion :: DomainSuggestion
-newDomainSuggestion  = DomainSuggestion { "Availability": (NullOrUndefined Nothing), "DomainName": (NullOrUndefined Nothing) }
+newDomainSuggestion  = DomainSuggestion { "Availability": Nothing, "DomainName": Nothing }
 
 -- | Constructs DomainSuggestion's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newDomainSuggestion' :: ( { "DomainName" :: NullOrUndefined (DomainName) , "Availability" :: NullOrUndefined (String) } -> {"DomainName" :: NullOrUndefined (DomainName) , "Availability" :: NullOrUndefined (String) } ) -> DomainSuggestion
-newDomainSuggestion'  customize = (DomainSuggestion <<< customize) { "Availability": (NullOrUndefined Nothing), "DomainName": (NullOrUndefined Nothing) }
+newDomainSuggestion' :: ( { "DomainName" :: Maybe (DomainName) , "Availability" :: Maybe (String) } -> {"DomainName" :: Maybe (DomainName) , "Availability" :: Maybe (String) } ) -> DomainSuggestion
+newDomainSuggestion'  customize = (DomainSuggestion <<< customize) { "Availability": Nothing, "DomainName": Nothing }
 
 
 
@@ -446,9 +445,9 @@ instance encodeDomainSuggestionsList :: Encode DomainSuggestionsList where encod
 -- | <p>Summary information about one domain.</p>
 newtype DomainSummary = DomainSummary 
   { "DomainName" :: (DomainName)
-  , "AutoRenew" :: NullOrUndefined (Boolean)
-  , "TransferLock" :: NullOrUndefined (Boolean)
-  , "Expiry" :: NullOrUndefined (Types.Timestamp)
+  , "AutoRenew" :: Maybe (Boolean)
+  , "TransferLock" :: Maybe (Boolean)
+  , "Expiry" :: Maybe (Types.Timestamp)
   }
 derive instance newtypeDomainSummary :: Newtype DomainSummary _
 derive instance repGenericDomainSummary :: Generic DomainSummary _
@@ -458,12 +457,12 @@ instance encodeDomainSummary :: Encode DomainSummary where encode = genericEncod
 
 -- | Constructs DomainSummary from required parameters
 newDomainSummary :: DomainName -> DomainSummary
-newDomainSummary _DomainName = DomainSummary { "DomainName": _DomainName, "AutoRenew": (NullOrUndefined Nothing), "Expiry": (NullOrUndefined Nothing), "TransferLock": (NullOrUndefined Nothing) }
+newDomainSummary _DomainName = DomainSummary { "DomainName": _DomainName, "AutoRenew": Nothing, "Expiry": Nothing, "TransferLock": Nothing }
 
 -- | Constructs DomainSummary's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newDomainSummary' :: DomainName -> ( { "DomainName" :: (DomainName) , "AutoRenew" :: NullOrUndefined (Boolean) , "TransferLock" :: NullOrUndefined (Boolean) , "Expiry" :: NullOrUndefined (Types.Timestamp) } -> {"DomainName" :: (DomainName) , "AutoRenew" :: NullOrUndefined (Boolean) , "TransferLock" :: NullOrUndefined (Boolean) , "Expiry" :: NullOrUndefined (Types.Timestamp) } ) -> DomainSummary
-newDomainSummary' _DomainName customize = (DomainSummary <<< customize) { "DomainName": _DomainName, "AutoRenew": (NullOrUndefined Nothing), "Expiry": (NullOrUndefined Nothing), "TransferLock": (NullOrUndefined Nothing) }
+newDomainSummary' :: DomainName -> ( { "DomainName" :: (DomainName) , "AutoRenew" :: Maybe (Boolean) , "TransferLock" :: Maybe (Boolean) , "Expiry" :: Maybe (Types.Timestamp) } -> {"DomainName" :: (DomainName) , "AutoRenew" :: Maybe (Boolean) , "TransferLock" :: Maybe (Boolean) , "Expiry" :: Maybe (Types.Timestamp) } ) -> DomainSummary
+newDomainSummary' _DomainName customize = (DomainSummary <<< customize) { "DomainName": _DomainName, "AutoRenew": Nothing, "Expiry": Nothing, "TransferLock": Nothing }
 
 
 
@@ -477,7 +476,7 @@ instance encodeDomainSummaryList :: Encode DomainSummaryList where encode = gene
 
 
 newtype DomainTransferability = DomainTransferability 
-  { "Transferable" :: NullOrUndefined (Transferable)
+  { "Transferable" :: Maybe (Transferable)
   }
 derive instance newtypeDomainTransferability :: Newtype DomainTransferability _
 derive instance repGenericDomainTransferability :: Generic DomainTransferability _
@@ -487,18 +486,18 @@ instance encodeDomainTransferability :: Encode DomainTransferability where encod
 
 -- | Constructs DomainTransferability from required parameters
 newDomainTransferability :: DomainTransferability
-newDomainTransferability  = DomainTransferability { "Transferable": (NullOrUndefined Nothing) }
+newDomainTransferability  = DomainTransferability { "Transferable": Nothing }
 
 -- | Constructs DomainTransferability's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newDomainTransferability' :: ( { "Transferable" :: NullOrUndefined (Transferable) } -> {"Transferable" :: NullOrUndefined (Transferable) } ) -> DomainTransferability
-newDomainTransferability'  customize = (DomainTransferability <<< customize) { "Transferable": (NullOrUndefined Nothing) }
+newDomainTransferability' :: ( { "Transferable" :: Maybe (Transferable) } -> {"Transferable" :: Maybe (Transferable) } ) -> DomainTransferability
+newDomainTransferability'  customize = (DomainTransferability <<< customize) { "Transferable": Nothing }
 
 
 
 -- | <p>The request is already in progress for the domain.</p>
 newtype DuplicateRequest = DuplicateRequest 
-  { "message" :: NullOrUndefined (ErrorMessage)
+  { "message" :: Maybe (ErrorMessage)
   }
 derive instance newtypeDuplicateRequest :: Newtype DuplicateRequest _
 derive instance repGenericDuplicateRequest :: Generic DuplicateRequest _
@@ -508,12 +507,12 @@ instance encodeDuplicateRequest :: Encode DuplicateRequest where encode = generi
 
 -- | Constructs DuplicateRequest from required parameters
 newDuplicateRequest :: DuplicateRequest
-newDuplicateRequest  = DuplicateRequest { "message": (NullOrUndefined Nothing) }
+newDuplicateRequest  = DuplicateRequest { "message": Nothing }
 
 -- | Constructs DuplicateRequest's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newDuplicateRequest' :: ( { "message" :: NullOrUndefined (ErrorMessage) } -> {"message" :: NullOrUndefined (ErrorMessage) } ) -> DuplicateRequest
-newDuplicateRequest'  customize = (DuplicateRequest <<< customize) { "message": (NullOrUndefined Nothing) }
+newDuplicateRequest' :: ( { "message" :: Maybe (ErrorMessage) } -> {"message" :: Maybe (ErrorMessage) } ) -> DuplicateRequest
+newDuplicateRequest'  customize = (DuplicateRequest <<< customize) { "message": Nothing }
 
 
 
@@ -674,7 +673,7 @@ instance encodeFIAuthKey :: Encode FIAuthKey where encode = genericEncode option
 
 
 newtype GetContactReachabilityStatusRequest = GetContactReachabilityStatusRequest 
-  { "domainName" :: NullOrUndefined (DomainName)
+  { "domainName" :: Maybe (DomainName)
   }
 derive instance newtypeGetContactReachabilityStatusRequest :: Newtype GetContactReachabilityStatusRequest _
 derive instance repGenericGetContactReachabilityStatusRequest :: Generic GetContactReachabilityStatusRequest _
@@ -684,18 +683,18 @@ instance encodeGetContactReachabilityStatusRequest :: Encode GetContactReachabil
 
 -- | Constructs GetContactReachabilityStatusRequest from required parameters
 newGetContactReachabilityStatusRequest :: GetContactReachabilityStatusRequest
-newGetContactReachabilityStatusRequest  = GetContactReachabilityStatusRequest { "domainName": (NullOrUndefined Nothing) }
+newGetContactReachabilityStatusRequest  = GetContactReachabilityStatusRequest { "domainName": Nothing }
 
 -- | Constructs GetContactReachabilityStatusRequest's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newGetContactReachabilityStatusRequest' :: ( { "domainName" :: NullOrUndefined (DomainName) } -> {"domainName" :: NullOrUndefined (DomainName) } ) -> GetContactReachabilityStatusRequest
-newGetContactReachabilityStatusRequest'  customize = (GetContactReachabilityStatusRequest <<< customize) { "domainName": (NullOrUndefined Nothing) }
+newGetContactReachabilityStatusRequest' :: ( { "domainName" :: Maybe (DomainName) } -> {"domainName" :: Maybe (DomainName) } ) -> GetContactReachabilityStatusRequest
+newGetContactReachabilityStatusRequest'  customize = (GetContactReachabilityStatusRequest <<< customize) { "domainName": Nothing }
 
 
 
 newtype GetContactReachabilityStatusResponse = GetContactReachabilityStatusResponse 
-  { "domainName" :: NullOrUndefined (DomainName)
-  , "status" :: NullOrUndefined (ReachabilityStatus)
+  { "domainName" :: Maybe (DomainName)
+  , "status" :: Maybe (ReachabilityStatus)
   }
 derive instance newtypeGetContactReachabilityStatusResponse :: Newtype GetContactReachabilityStatusResponse _
 derive instance repGenericGetContactReachabilityStatusResponse :: Generic GetContactReachabilityStatusResponse _
@@ -705,12 +704,12 @@ instance encodeGetContactReachabilityStatusResponse :: Encode GetContactReachabi
 
 -- | Constructs GetContactReachabilityStatusResponse from required parameters
 newGetContactReachabilityStatusResponse :: GetContactReachabilityStatusResponse
-newGetContactReachabilityStatusResponse  = GetContactReachabilityStatusResponse { "domainName": (NullOrUndefined Nothing), "status": (NullOrUndefined Nothing) }
+newGetContactReachabilityStatusResponse  = GetContactReachabilityStatusResponse { "domainName": Nothing, "status": Nothing }
 
 -- | Constructs GetContactReachabilityStatusResponse's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newGetContactReachabilityStatusResponse' :: ( { "domainName" :: NullOrUndefined (DomainName) , "status" :: NullOrUndefined (ReachabilityStatus) } -> {"domainName" :: NullOrUndefined (DomainName) , "status" :: NullOrUndefined (ReachabilityStatus) } ) -> GetContactReachabilityStatusResponse
-newGetContactReachabilityStatusResponse'  customize = (GetContactReachabilityStatusResponse <<< customize) { "domainName": (NullOrUndefined Nothing), "status": (NullOrUndefined Nothing) }
+newGetContactReachabilityStatusResponse' :: ( { "domainName" :: Maybe (DomainName) , "status" :: Maybe (ReachabilityStatus) } -> {"domainName" :: Maybe (DomainName) , "status" :: Maybe (ReachabilityStatus) } ) -> GetContactReachabilityStatusResponse
+newGetContactReachabilityStatusResponse'  customize = (GetContactReachabilityStatusResponse <<< customize) { "domainName": Nothing, "status": Nothing }
 
 
 
@@ -739,25 +738,25 @@ newGetDomainDetailRequest' _DomainName customize = (GetDomainDetailRequest <<< c
 newtype GetDomainDetailResponse = GetDomainDetailResponse 
   { "DomainName" :: (DomainName)
   , "Nameservers" :: (NameserverList)
-  , "AutoRenew" :: NullOrUndefined (Boolean)
+  , "AutoRenew" :: Maybe (Boolean)
   , "AdminContact" :: (ContactDetail)
   , "RegistrantContact" :: (ContactDetail)
   , "TechContact" :: (ContactDetail)
-  , "AdminPrivacy" :: NullOrUndefined (Boolean)
-  , "RegistrantPrivacy" :: NullOrUndefined (Boolean)
-  , "TechPrivacy" :: NullOrUndefined (Boolean)
-  , "RegistrarName" :: NullOrUndefined (RegistrarName)
-  , "WhoIsServer" :: NullOrUndefined (RegistrarWhoIsServer)
-  , "RegistrarUrl" :: NullOrUndefined (RegistrarUrl)
-  , "AbuseContactEmail" :: NullOrUndefined (Email)
-  , "AbuseContactPhone" :: NullOrUndefined (ContactNumber)
-  , "RegistryDomainId" :: NullOrUndefined (RegistryDomainId)
-  , "CreationDate" :: NullOrUndefined (Types.Timestamp)
-  , "UpdatedDate" :: NullOrUndefined (Types.Timestamp)
-  , "ExpirationDate" :: NullOrUndefined (Types.Timestamp)
-  , "Reseller" :: NullOrUndefined (Reseller)
-  , "DnsSec" :: NullOrUndefined (DNSSec)
-  , "StatusList" :: NullOrUndefined (DomainStatusList)
+  , "AdminPrivacy" :: Maybe (Boolean)
+  , "RegistrantPrivacy" :: Maybe (Boolean)
+  , "TechPrivacy" :: Maybe (Boolean)
+  , "RegistrarName" :: Maybe (RegistrarName)
+  , "WhoIsServer" :: Maybe (RegistrarWhoIsServer)
+  , "RegistrarUrl" :: Maybe (RegistrarUrl)
+  , "AbuseContactEmail" :: Maybe (Email)
+  , "AbuseContactPhone" :: Maybe (ContactNumber)
+  , "RegistryDomainId" :: Maybe (RegistryDomainId)
+  , "CreationDate" :: Maybe (Types.Timestamp)
+  , "UpdatedDate" :: Maybe (Types.Timestamp)
+  , "ExpirationDate" :: Maybe (Types.Timestamp)
+  , "Reseller" :: Maybe (Reseller)
+  , "DnsSec" :: Maybe (DNSSec)
+  , "StatusList" :: Maybe (DomainStatusList)
   }
 derive instance newtypeGetDomainDetailResponse :: Newtype GetDomainDetailResponse _
 derive instance repGenericGetDomainDetailResponse :: Generic GetDomainDetailResponse _
@@ -767,12 +766,12 @@ instance encodeGetDomainDetailResponse :: Encode GetDomainDetailResponse where e
 
 -- | Constructs GetDomainDetailResponse from required parameters
 newGetDomainDetailResponse :: ContactDetail -> DomainName -> NameserverList -> ContactDetail -> ContactDetail -> GetDomainDetailResponse
-newGetDomainDetailResponse _AdminContact _DomainName _Nameservers _RegistrantContact _TechContact = GetDomainDetailResponse { "AdminContact": _AdminContact, "DomainName": _DomainName, "Nameservers": _Nameservers, "RegistrantContact": _RegistrantContact, "TechContact": _TechContact, "AbuseContactEmail": (NullOrUndefined Nothing), "AbuseContactPhone": (NullOrUndefined Nothing), "AdminPrivacy": (NullOrUndefined Nothing), "AutoRenew": (NullOrUndefined Nothing), "CreationDate": (NullOrUndefined Nothing), "DnsSec": (NullOrUndefined Nothing), "ExpirationDate": (NullOrUndefined Nothing), "RegistrantPrivacy": (NullOrUndefined Nothing), "RegistrarName": (NullOrUndefined Nothing), "RegistrarUrl": (NullOrUndefined Nothing), "RegistryDomainId": (NullOrUndefined Nothing), "Reseller": (NullOrUndefined Nothing), "StatusList": (NullOrUndefined Nothing), "TechPrivacy": (NullOrUndefined Nothing), "UpdatedDate": (NullOrUndefined Nothing), "WhoIsServer": (NullOrUndefined Nothing) }
+newGetDomainDetailResponse _AdminContact _DomainName _Nameservers _RegistrantContact _TechContact = GetDomainDetailResponse { "AdminContact": _AdminContact, "DomainName": _DomainName, "Nameservers": _Nameservers, "RegistrantContact": _RegistrantContact, "TechContact": _TechContact, "AbuseContactEmail": Nothing, "AbuseContactPhone": Nothing, "AdminPrivacy": Nothing, "AutoRenew": Nothing, "CreationDate": Nothing, "DnsSec": Nothing, "ExpirationDate": Nothing, "RegistrantPrivacy": Nothing, "RegistrarName": Nothing, "RegistrarUrl": Nothing, "RegistryDomainId": Nothing, "Reseller": Nothing, "StatusList": Nothing, "TechPrivacy": Nothing, "UpdatedDate": Nothing, "WhoIsServer": Nothing }
 
 -- | Constructs GetDomainDetailResponse's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newGetDomainDetailResponse' :: ContactDetail -> DomainName -> NameserverList -> ContactDetail -> ContactDetail -> ( { "DomainName" :: (DomainName) , "Nameservers" :: (NameserverList) , "AutoRenew" :: NullOrUndefined (Boolean) , "AdminContact" :: (ContactDetail) , "RegistrantContact" :: (ContactDetail) , "TechContact" :: (ContactDetail) , "AdminPrivacy" :: NullOrUndefined (Boolean) , "RegistrantPrivacy" :: NullOrUndefined (Boolean) , "TechPrivacy" :: NullOrUndefined (Boolean) , "RegistrarName" :: NullOrUndefined (RegistrarName) , "WhoIsServer" :: NullOrUndefined (RegistrarWhoIsServer) , "RegistrarUrl" :: NullOrUndefined (RegistrarUrl) , "AbuseContactEmail" :: NullOrUndefined (Email) , "AbuseContactPhone" :: NullOrUndefined (ContactNumber) , "RegistryDomainId" :: NullOrUndefined (RegistryDomainId) , "CreationDate" :: NullOrUndefined (Types.Timestamp) , "UpdatedDate" :: NullOrUndefined (Types.Timestamp) , "ExpirationDate" :: NullOrUndefined (Types.Timestamp) , "Reseller" :: NullOrUndefined (Reseller) , "DnsSec" :: NullOrUndefined (DNSSec) , "StatusList" :: NullOrUndefined (DomainStatusList) } -> {"DomainName" :: (DomainName) , "Nameservers" :: (NameserverList) , "AutoRenew" :: NullOrUndefined (Boolean) , "AdminContact" :: (ContactDetail) , "RegistrantContact" :: (ContactDetail) , "TechContact" :: (ContactDetail) , "AdminPrivacy" :: NullOrUndefined (Boolean) , "RegistrantPrivacy" :: NullOrUndefined (Boolean) , "TechPrivacy" :: NullOrUndefined (Boolean) , "RegistrarName" :: NullOrUndefined (RegistrarName) , "WhoIsServer" :: NullOrUndefined (RegistrarWhoIsServer) , "RegistrarUrl" :: NullOrUndefined (RegistrarUrl) , "AbuseContactEmail" :: NullOrUndefined (Email) , "AbuseContactPhone" :: NullOrUndefined (ContactNumber) , "RegistryDomainId" :: NullOrUndefined (RegistryDomainId) , "CreationDate" :: NullOrUndefined (Types.Timestamp) , "UpdatedDate" :: NullOrUndefined (Types.Timestamp) , "ExpirationDate" :: NullOrUndefined (Types.Timestamp) , "Reseller" :: NullOrUndefined (Reseller) , "DnsSec" :: NullOrUndefined (DNSSec) , "StatusList" :: NullOrUndefined (DomainStatusList) } ) -> GetDomainDetailResponse
-newGetDomainDetailResponse' _AdminContact _DomainName _Nameservers _RegistrantContact _TechContact customize = (GetDomainDetailResponse <<< customize) { "AdminContact": _AdminContact, "DomainName": _DomainName, "Nameservers": _Nameservers, "RegistrantContact": _RegistrantContact, "TechContact": _TechContact, "AbuseContactEmail": (NullOrUndefined Nothing), "AbuseContactPhone": (NullOrUndefined Nothing), "AdminPrivacy": (NullOrUndefined Nothing), "AutoRenew": (NullOrUndefined Nothing), "CreationDate": (NullOrUndefined Nothing), "DnsSec": (NullOrUndefined Nothing), "ExpirationDate": (NullOrUndefined Nothing), "RegistrantPrivacy": (NullOrUndefined Nothing), "RegistrarName": (NullOrUndefined Nothing), "RegistrarUrl": (NullOrUndefined Nothing), "RegistryDomainId": (NullOrUndefined Nothing), "Reseller": (NullOrUndefined Nothing), "StatusList": (NullOrUndefined Nothing), "TechPrivacy": (NullOrUndefined Nothing), "UpdatedDate": (NullOrUndefined Nothing), "WhoIsServer": (NullOrUndefined Nothing) }
+newGetDomainDetailResponse' :: ContactDetail -> DomainName -> NameserverList -> ContactDetail -> ContactDetail -> ( { "DomainName" :: (DomainName) , "Nameservers" :: (NameserverList) , "AutoRenew" :: Maybe (Boolean) , "AdminContact" :: (ContactDetail) , "RegistrantContact" :: (ContactDetail) , "TechContact" :: (ContactDetail) , "AdminPrivacy" :: Maybe (Boolean) , "RegistrantPrivacy" :: Maybe (Boolean) , "TechPrivacy" :: Maybe (Boolean) , "RegistrarName" :: Maybe (RegistrarName) , "WhoIsServer" :: Maybe (RegistrarWhoIsServer) , "RegistrarUrl" :: Maybe (RegistrarUrl) , "AbuseContactEmail" :: Maybe (Email) , "AbuseContactPhone" :: Maybe (ContactNumber) , "RegistryDomainId" :: Maybe (RegistryDomainId) , "CreationDate" :: Maybe (Types.Timestamp) , "UpdatedDate" :: Maybe (Types.Timestamp) , "ExpirationDate" :: Maybe (Types.Timestamp) , "Reseller" :: Maybe (Reseller) , "DnsSec" :: Maybe (DNSSec) , "StatusList" :: Maybe (DomainStatusList) } -> {"DomainName" :: (DomainName) , "Nameservers" :: (NameserverList) , "AutoRenew" :: Maybe (Boolean) , "AdminContact" :: (ContactDetail) , "RegistrantContact" :: (ContactDetail) , "TechContact" :: (ContactDetail) , "AdminPrivacy" :: Maybe (Boolean) , "RegistrantPrivacy" :: Maybe (Boolean) , "TechPrivacy" :: Maybe (Boolean) , "RegistrarName" :: Maybe (RegistrarName) , "WhoIsServer" :: Maybe (RegistrarWhoIsServer) , "RegistrarUrl" :: Maybe (RegistrarUrl) , "AbuseContactEmail" :: Maybe (Email) , "AbuseContactPhone" :: Maybe (ContactNumber) , "RegistryDomainId" :: Maybe (RegistryDomainId) , "CreationDate" :: Maybe (Types.Timestamp) , "UpdatedDate" :: Maybe (Types.Timestamp) , "ExpirationDate" :: Maybe (Types.Timestamp) , "Reseller" :: Maybe (Reseller) , "DnsSec" :: Maybe (DNSSec) , "StatusList" :: Maybe (DomainStatusList) } ) -> GetDomainDetailResponse
+newGetDomainDetailResponse' _AdminContact _DomainName _Nameservers _RegistrantContact _TechContact customize = (GetDomainDetailResponse <<< customize) { "AdminContact": _AdminContact, "DomainName": _DomainName, "Nameservers": _Nameservers, "RegistrantContact": _RegistrantContact, "TechContact": _TechContact, "AbuseContactEmail": Nothing, "AbuseContactPhone": Nothing, "AdminPrivacy": Nothing, "AutoRenew": Nothing, "CreationDate": Nothing, "DnsSec": Nothing, "ExpirationDate": Nothing, "RegistrantPrivacy": Nothing, "RegistrarName": Nothing, "RegistrarUrl": Nothing, "RegistryDomainId": Nothing, "Reseller": Nothing, "StatusList": Nothing, "TechPrivacy": Nothing, "UpdatedDate": Nothing, "WhoIsServer": Nothing }
 
 
 
@@ -799,7 +798,7 @@ newGetDomainSuggestionsRequest' _DomainName _OnlyAvailable _SuggestionCount cust
 
 
 newtype GetDomainSuggestionsResponse = GetDomainSuggestionsResponse 
-  { "SuggestionsList" :: NullOrUndefined (DomainSuggestionsList)
+  { "SuggestionsList" :: Maybe (DomainSuggestionsList)
   }
 derive instance newtypeGetDomainSuggestionsResponse :: Newtype GetDomainSuggestionsResponse _
 derive instance repGenericGetDomainSuggestionsResponse :: Generic GetDomainSuggestionsResponse _
@@ -809,12 +808,12 @@ instance encodeGetDomainSuggestionsResponse :: Encode GetDomainSuggestionsRespon
 
 -- | Constructs GetDomainSuggestionsResponse from required parameters
 newGetDomainSuggestionsResponse :: GetDomainSuggestionsResponse
-newGetDomainSuggestionsResponse  = GetDomainSuggestionsResponse { "SuggestionsList": (NullOrUndefined Nothing) }
+newGetDomainSuggestionsResponse  = GetDomainSuggestionsResponse { "SuggestionsList": Nothing }
 
 -- | Constructs GetDomainSuggestionsResponse's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newGetDomainSuggestionsResponse' :: ( { "SuggestionsList" :: NullOrUndefined (DomainSuggestionsList) } -> {"SuggestionsList" :: NullOrUndefined (DomainSuggestionsList) } ) -> GetDomainSuggestionsResponse
-newGetDomainSuggestionsResponse'  customize = (GetDomainSuggestionsResponse <<< customize) { "SuggestionsList": (NullOrUndefined Nothing) }
+newGetDomainSuggestionsResponse' :: ( { "SuggestionsList" :: Maybe (DomainSuggestionsList) } -> {"SuggestionsList" :: Maybe (DomainSuggestionsList) } ) -> GetDomainSuggestionsResponse
+newGetDomainSuggestionsResponse'  customize = (GetDomainSuggestionsResponse <<< customize) { "SuggestionsList": Nothing }
 
 
 
@@ -841,12 +840,12 @@ newGetOperationDetailRequest' _OperationId customize = (GetOperationDetailReques
 
 -- | <p>The GetOperationDetail response includes the following elements.</p>
 newtype GetOperationDetailResponse = GetOperationDetailResponse 
-  { "OperationId" :: NullOrUndefined (OperationId)
-  , "Status" :: NullOrUndefined (OperationStatus)
-  , "Message" :: NullOrUndefined (ErrorMessage)
-  , "DomainName" :: NullOrUndefined (DomainName)
-  , "Type" :: NullOrUndefined (OperationType)
-  , "SubmittedDate" :: NullOrUndefined (Types.Timestamp)
+  { "OperationId" :: Maybe (OperationId)
+  , "Status" :: Maybe (OperationStatus)
+  , "Message" :: Maybe (ErrorMessage)
+  , "DomainName" :: Maybe (DomainName)
+  , "Type" :: Maybe (OperationType)
+  , "SubmittedDate" :: Maybe (Types.Timestamp)
   }
 derive instance newtypeGetOperationDetailResponse :: Newtype GetOperationDetailResponse _
 derive instance repGenericGetOperationDetailResponse :: Generic GetOperationDetailResponse _
@@ -856,12 +855,12 @@ instance encodeGetOperationDetailResponse :: Encode GetOperationDetailResponse w
 
 -- | Constructs GetOperationDetailResponse from required parameters
 newGetOperationDetailResponse :: GetOperationDetailResponse
-newGetOperationDetailResponse  = GetOperationDetailResponse { "DomainName": (NullOrUndefined Nothing), "Message": (NullOrUndefined Nothing), "OperationId": (NullOrUndefined Nothing), "Status": (NullOrUndefined Nothing), "SubmittedDate": (NullOrUndefined Nothing), "Type": (NullOrUndefined Nothing) }
+newGetOperationDetailResponse  = GetOperationDetailResponse { "DomainName": Nothing, "Message": Nothing, "OperationId": Nothing, "Status": Nothing, "SubmittedDate": Nothing, "Type": Nothing }
 
 -- | Constructs GetOperationDetailResponse's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newGetOperationDetailResponse' :: ( { "OperationId" :: NullOrUndefined (OperationId) , "Status" :: NullOrUndefined (OperationStatus) , "Message" :: NullOrUndefined (ErrorMessage) , "DomainName" :: NullOrUndefined (DomainName) , "Type" :: NullOrUndefined (OperationType) , "SubmittedDate" :: NullOrUndefined (Types.Timestamp) } -> {"OperationId" :: NullOrUndefined (OperationId) , "Status" :: NullOrUndefined (OperationStatus) , "Message" :: NullOrUndefined (ErrorMessage) , "DomainName" :: NullOrUndefined (DomainName) , "Type" :: NullOrUndefined (OperationType) , "SubmittedDate" :: NullOrUndefined (Types.Timestamp) } ) -> GetOperationDetailResponse
-newGetOperationDetailResponse'  customize = (GetOperationDetailResponse <<< customize) { "DomainName": (NullOrUndefined Nothing), "Message": (NullOrUndefined Nothing), "OperationId": (NullOrUndefined Nothing), "Status": (NullOrUndefined Nothing), "SubmittedDate": (NullOrUndefined Nothing), "Type": (NullOrUndefined Nothing) }
+newGetOperationDetailResponse' :: ( { "OperationId" :: Maybe (OperationId) , "Status" :: Maybe (OperationStatus) , "Message" :: Maybe (ErrorMessage) , "DomainName" :: Maybe (DomainName) , "Type" :: Maybe (OperationType) , "SubmittedDate" :: Maybe (Types.Timestamp) } -> {"OperationId" :: Maybe (OperationId) , "Status" :: Maybe (OperationStatus) , "Message" :: Maybe (ErrorMessage) , "DomainName" :: Maybe (DomainName) , "Type" :: Maybe (OperationType) , "SubmittedDate" :: Maybe (Types.Timestamp) } ) -> GetOperationDetailResponse
+newGetOperationDetailResponse'  customize = (GetOperationDetailResponse <<< customize) { "DomainName": Nothing, "Message": Nothing, "OperationId": Nothing, "Status": Nothing, "SubmittedDate": Nothing, "Type": Nothing }
 
 
 
@@ -894,7 +893,7 @@ instance encodeHostName :: Encode HostName where encode = genericEncode options
 
 -- | <p>The requested item is not acceptable. For example, for an OperationId it might refer to the ID of an operation that is already completed. For a domain name, it might not be a valid domain name or belong to the requester account.</p>
 newtype InvalidInput = InvalidInput 
-  { "message" :: NullOrUndefined (ErrorMessage)
+  { "message" :: Maybe (ErrorMessage)
   }
 derive instance newtypeInvalidInput :: Newtype InvalidInput _
 derive instance repGenericInvalidInput :: Generic InvalidInput _
@@ -904,12 +903,12 @@ instance encodeInvalidInput :: Encode InvalidInput where encode = genericEncode 
 
 -- | Constructs InvalidInput from required parameters
 newInvalidInput :: InvalidInput
-newInvalidInput  = InvalidInput { "message": (NullOrUndefined Nothing) }
+newInvalidInput  = InvalidInput { "message": Nothing }
 
 -- | Constructs InvalidInput's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newInvalidInput' :: ( { "message" :: NullOrUndefined (ErrorMessage) } -> {"message" :: NullOrUndefined (ErrorMessage) } ) -> InvalidInput
-newInvalidInput'  customize = (InvalidInput <<< customize) { "message": (NullOrUndefined Nothing) }
+newInvalidInput' :: ( { "message" :: Maybe (ErrorMessage) } -> {"message" :: Maybe (ErrorMessage) } ) -> InvalidInput
+newInvalidInput'  customize = (InvalidInput <<< customize) { "message": Nothing }
 
 
 
@@ -933,8 +932,8 @@ instance encodeLangCode :: Encode LangCode where encode = genericEncode options
 
 -- | <p>The ListDomains request includes the following elements.</p>
 newtype ListDomainsRequest = ListDomainsRequest 
-  { "Marker" :: NullOrUndefined (PageMarker)
-  , "MaxItems" :: NullOrUndefined (PageMaxItems)
+  { "Marker" :: Maybe (PageMarker)
+  , "MaxItems" :: Maybe (PageMaxItems)
   }
 derive instance newtypeListDomainsRequest :: Newtype ListDomainsRequest _
 derive instance repGenericListDomainsRequest :: Generic ListDomainsRequest _
@@ -944,19 +943,19 @@ instance encodeListDomainsRequest :: Encode ListDomainsRequest where encode = ge
 
 -- | Constructs ListDomainsRequest from required parameters
 newListDomainsRequest :: ListDomainsRequest
-newListDomainsRequest  = ListDomainsRequest { "Marker": (NullOrUndefined Nothing), "MaxItems": (NullOrUndefined Nothing) }
+newListDomainsRequest  = ListDomainsRequest { "Marker": Nothing, "MaxItems": Nothing }
 
 -- | Constructs ListDomainsRequest's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newListDomainsRequest' :: ( { "Marker" :: NullOrUndefined (PageMarker) , "MaxItems" :: NullOrUndefined (PageMaxItems) } -> {"Marker" :: NullOrUndefined (PageMarker) , "MaxItems" :: NullOrUndefined (PageMaxItems) } ) -> ListDomainsRequest
-newListDomainsRequest'  customize = (ListDomainsRequest <<< customize) { "Marker": (NullOrUndefined Nothing), "MaxItems": (NullOrUndefined Nothing) }
+newListDomainsRequest' :: ( { "Marker" :: Maybe (PageMarker) , "MaxItems" :: Maybe (PageMaxItems) } -> {"Marker" :: Maybe (PageMarker) , "MaxItems" :: Maybe (PageMaxItems) } ) -> ListDomainsRequest
+newListDomainsRequest'  customize = (ListDomainsRequest <<< customize) { "Marker": Nothing, "MaxItems": Nothing }
 
 
 
 -- | <p>The ListDomains response includes the following elements.</p>
 newtype ListDomainsResponse = ListDomainsResponse 
   { "Domains" :: (DomainSummaryList)
-  , "NextPageMarker" :: NullOrUndefined (PageMarker)
+  , "NextPageMarker" :: Maybe (PageMarker)
   }
 derive instance newtypeListDomainsResponse :: Newtype ListDomainsResponse _
 derive instance repGenericListDomainsResponse :: Generic ListDomainsResponse _
@@ -966,19 +965,19 @@ instance encodeListDomainsResponse :: Encode ListDomainsResponse where encode = 
 
 -- | Constructs ListDomainsResponse from required parameters
 newListDomainsResponse :: DomainSummaryList -> ListDomainsResponse
-newListDomainsResponse _Domains = ListDomainsResponse { "Domains": _Domains, "NextPageMarker": (NullOrUndefined Nothing) }
+newListDomainsResponse _Domains = ListDomainsResponse { "Domains": _Domains, "NextPageMarker": Nothing }
 
 -- | Constructs ListDomainsResponse's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newListDomainsResponse' :: DomainSummaryList -> ( { "Domains" :: (DomainSummaryList) , "NextPageMarker" :: NullOrUndefined (PageMarker) } -> {"Domains" :: (DomainSummaryList) , "NextPageMarker" :: NullOrUndefined (PageMarker) } ) -> ListDomainsResponse
-newListDomainsResponse' _Domains customize = (ListDomainsResponse <<< customize) { "Domains": _Domains, "NextPageMarker": (NullOrUndefined Nothing) }
+newListDomainsResponse' :: DomainSummaryList -> ( { "Domains" :: (DomainSummaryList) , "NextPageMarker" :: Maybe (PageMarker) } -> {"Domains" :: (DomainSummaryList) , "NextPageMarker" :: Maybe (PageMarker) } ) -> ListDomainsResponse
+newListDomainsResponse' _Domains customize = (ListDomainsResponse <<< customize) { "Domains": _Domains, "NextPageMarker": Nothing }
 
 
 
 -- | <p>The ListOperations request includes the following elements.</p>
 newtype ListOperationsRequest = ListOperationsRequest 
-  { "Marker" :: NullOrUndefined (PageMarker)
-  , "MaxItems" :: NullOrUndefined (PageMaxItems)
+  { "Marker" :: Maybe (PageMarker)
+  , "MaxItems" :: Maybe (PageMaxItems)
   }
 derive instance newtypeListOperationsRequest :: Newtype ListOperationsRequest _
 derive instance repGenericListOperationsRequest :: Generic ListOperationsRequest _
@@ -988,19 +987,19 @@ instance encodeListOperationsRequest :: Encode ListOperationsRequest where encod
 
 -- | Constructs ListOperationsRequest from required parameters
 newListOperationsRequest :: ListOperationsRequest
-newListOperationsRequest  = ListOperationsRequest { "Marker": (NullOrUndefined Nothing), "MaxItems": (NullOrUndefined Nothing) }
+newListOperationsRequest  = ListOperationsRequest { "Marker": Nothing, "MaxItems": Nothing }
 
 -- | Constructs ListOperationsRequest's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newListOperationsRequest' :: ( { "Marker" :: NullOrUndefined (PageMarker) , "MaxItems" :: NullOrUndefined (PageMaxItems) } -> {"Marker" :: NullOrUndefined (PageMarker) , "MaxItems" :: NullOrUndefined (PageMaxItems) } ) -> ListOperationsRequest
-newListOperationsRequest'  customize = (ListOperationsRequest <<< customize) { "Marker": (NullOrUndefined Nothing), "MaxItems": (NullOrUndefined Nothing) }
+newListOperationsRequest' :: ( { "Marker" :: Maybe (PageMarker) , "MaxItems" :: Maybe (PageMaxItems) } -> {"Marker" :: Maybe (PageMarker) , "MaxItems" :: Maybe (PageMaxItems) } ) -> ListOperationsRequest
+newListOperationsRequest'  customize = (ListOperationsRequest <<< customize) { "Marker": Nothing, "MaxItems": Nothing }
 
 
 
 -- | <p>The ListOperations response includes the following elements.</p>
 newtype ListOperationsResponse = ListOperationsResponse 
   { "Operations" :: (OperationSummaryList)
-  , "NextPageMarker" :: NullOrUndefined (PageMarker)
+  , "NextPageMarker" :: Maybe (PageMarker)
   }
 derive instance newtypeListOperationsResponse :: Newtype ListOperationsResponse _
 derive instance repGenericListOperationsResponse :: Generic ListOperationsResponse _
@@ -1010,12 +1009,12 @@ instance encodeListOperationsResponse :: Encode ListOperationsResponse where enc
 
 -- | Constructs ListOperationsResponse from required parameters
 newListOperationsResponse :: OperationSummaryList -> ListOperationsResponse
-newListOperationsResponse _Operations = ListOperationsResponse { "Operations": _Operations, "NextPageMarker": (NullOrUndefined Nothing) }
+newListOperationsResponse _Operations = ListOperationsResponse { "Operations": _Operations, "NextPageMarker": Nothing }
 
 -- | Constructs ListOperationsResponse's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newListOperationsResponse' :: OperationSummaryList -> ( { "Operations" :: (OperationSummaryList) , "NextPageMarker" :: NullOrUndefined (PageMarker) } -> {"Operations" :: (OperationSummaryList) , "NextPageMarker" :: NullOrUndefined (PageMarker) } ) -> ListOperationsResponse
-newListOperationsResponse' _Operations customize = (ListOperationsResponse <<< customize) { "Operations": _Operations, "NextPageMarker": (NullOrUndefined Nothing) }
+newListOperationsResponse' :: OperationSummaryList -> ( { "Operations" :: (OperationSummaryList) , "NextPageMarker" :: Maybe (PageMarker) } -> {"Operations" :: (OperationSummaryList) , "NextPageMarker" :: Maybe (PageMarker) } ) -> ListOperationsResponse
+newListOperationsResponse' _Operations customize = (ListOperationsResponse <<< customize) { "Operations": _Operations, "NextPageMarker": Nothing }
 
 
 
@@ -1064,7 +1063,7 @@ newListTagsForDomainResponse' _TagList customize = (ListTagsForDomainResponse <<
 -- | <p>Nameserver includes the following elements.</p>
 newtype Nameserver = Nameserver 
   { "Name" :: (HostName)
-  , "GlueIps" :: NullOrUndefined (GlueIpList)
+  , "GlueIps" :: Maybe (GlueIpList)
   }
 derive instance newtypeNameserver :: Newtype Nameserver _
 derive instance repGenericNameserver :: Generic Nameserver _
@@ -1074,12 +1073,12 @@ instance encodeNameserver :: Encode Nameserver where encode = genericEncode opti
 
 -- | Constructs Nameserver from required parameters
 newNameserver :: HostName -> Nameserver
-newNameserver _Name = Nameserver { "Name": _Name, "GlueIps": (NullOrUndefined Nothing) }
+newNameserver _Name = Nameserver { "Name": _Name, "GlueIps": Nothing }
 
 -- | Constructs Nameserver's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newNameserver' :: HostName -> ( { "Name" :: (HostName) , "GlueIps" :: NullOrUndefined (GlueIpList) } -> {"Name" :: (HostName) , "GlueIps" :: NullOrUndefined (GlueIpList) } ) -> Nameserver
-newNameserver' _Name customize = (Nameserver <<< customize) { "Name": _Name, "GlueIps": (NullOrUndefined Nothing) }
+newNameserver' :: HostName -> ( { "Name" :: (HostName) , "GlueIps" :: Maybe (GlueIpList) } -> {"Name" :: (HostName) , "GlueIps" :: Maybe (GlueIpList) } ) -> Nameserver
+newNameserver' _Name customize = (Nameserver <<< customize) { "Name": _Name, "GlueIps": Nothing }
 
 
 
@@ -1103,7 +1102,7 @@ instance encodeOperationId :: Encode OperationId where encode = genericEncode op
 
 -- | <p>The number of operations or jobs running exceeded the allowed threshold for the account.</p>
 newtype OperationLimitExceeded = OperationLimitExceeded 
-  { "message" :: NullOrUndefined (ErrorMessage)
+  { "message" :: Maybe (ErrorMessage)
   }
 derive instance newtypeOperationLimitExceeded :: Newtype OperationLimitExceeded _
 derive instance repGenericOperationLimitExceeded :: Generic OperationLimitExceeded _
@@ -1113,12 +1112,12 @@ instance encodeOperationLimitExceeded :: Encode OperationLimitExceeded where enc
 
 -- | Constructs OperationLimitExceeded from required parameters
 newOperationLimitExceeded :: OperationLimitExceeded
-newOperationLimitExceeded  = OperationLimitExceeded { "message": (NullOrUndefined Nothing) }
+newOperationLimitExceeded  = OperationLimitExceeded { "message": Nothing }
 
 -- | Constructs OperationLimitExceeded's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newOperationLimitExceeded' :: ( { "message" :: NullOrUndefined (ErrorMessage) } -> {"message" :: NullOrUndefined (ErrorMessage) } ) -> OperationLimitExceeded
-newOperationLimitExceeded'  customize = (OperationLimitExceeded <<< customize) { "message": (NullOrUndefined Nothing) }
+newOperationLimitExceeded' :: ( { "message" :: Maybe (ErrorMessage) } -> {"message" :: Maybe (ErrorMessage) } ) -> OperationLimitExceeded
+newOperationLimitExceeded'  customize = (OperationLimitExceeded <<< customize) { "message": Nothing }
 
 
 
@@ -1212,15 +1211,15 @@ instance encodeReachabilityStatus :: Encode ReachabilityStatus where encode = ge
 -- | <p>The RegisterDomain request includes the following elements.</p>
 newtype RegisterDomainRequest = RegisterDomainRequest 
   { "DomainName" :: (DomainName)
-  , "IdnLangCode" :: NullOrUndefined (LangCode)
+  , "IdnLangCode" :: Maybe (LangCode)
   , "DurationInYears" :: (DurationInYears)
-  , "AutoRenew" :: NullOrUndefined (Boolean)
+  , "AutoRenew" :: Maybe (Boolean)
   , "AdminContact" :: (ContactDetail)
   , "RegistrantContact" :: (ContactDetail)
   , "TechContact" :: (ContactDetail)
-  , "PrivacyProtectAdminContact" :: NullOrUndefined (Boolean)
-  , "PrivacyProtectRegistrantContact" :: NullOrUndefined (Boolean)
-  , "PrivacyProtectTechContact" :: NullOrUndefined (Boolean)
+  , "PrivacyProtectAdminContact" :: Maybe (Boolean)
+  , "PrivacyProtectRegistrantContact" :: Maybe (Boolean)
+  , "PrivacyProtectTechContact" :: Maybe (Boolean)
   }
 derive instance newtypeRegisterDomainRequest :: Newtype RegisterDomainRequest _
 derive instance repGenericRegisterDomainRequest :: Generic RegisterDomainRequest _
@@ -1230,12 +1229,12 @@ instance encodeRegisterDomainRequest :: Encode RegisterDomainRequest where encod
 
 -- | Constructs RegisterDomainRequest from required parameters
 newRegisterDomainRequest :: ContactDetail -> DomainName -> DurationInYears -> ContactDetail -> ContactDetail -> RegisterDomainRequest
-newRegisterDomainRequest _AdminContact _DomainName _DurationInYears _RegistrantContact _TechContact = RegisterDomainRequest { "AdminContact": _AdminContact, "DomainName": _DomainName, "DurationInYears": _DurationInYears, "RegistrantContact": _RegistrantContact, "TechContact": _TechContact, "AutoRenew": (NullOrUndefined Nothing), "IdnLangCode": (NullOrUndefined Nothing), "PrivacyProtectAdminContact": (NullOrUndefined Nothing), "PrivacyProtectRegistrantContact": (NullOrUndefined Nothing), "PrivacyProtectTechContact": (NullOrUndefined Nothing) }
+newRegisterDomainRequest _AdminContact _DomainName _DurationInYears _RegistrantContact _TechContact = RegisterDomainRequest { "AdminContact": _AdminContact, "DomainName": _DomainName, "DurationInYears": _DurationInYears, "RegistrantContact": _RegistrantContact, "TechContact": _TechContact, "AutoRenew": Nothing, "IdnLangCode": Nothing, "PrivacyProtectAdminContact": Nothing, "PrivacyProtectRegistrantContact": Nothing, "PrivacyProtectTechContact": Nothing }
 
 -- | Constructs RegisterDomainRequest's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newRegisterDomainRequest' :: ContactDetail -> DomainName -> DurationInYears -> ContactDetail -> ContactDetail -> ( { "DomainName" :: (DomainName) , "IdnLangCode" :: NullOrUndefined (LangCode) , "DurationInYears" :: (DurationInYears) , "AutoRenew" :: NullOrUndefined (Boolean) , "AdminContact" :: (ContactDetail) , "RegistrantContact" :: (ContactDetail) , "TechContact" :: (ContactDetail) , "PrivacyProtectAdminContact" :: NullOrUndefined (Boolean) , "PrivacyProtectRegistrantContact" :: NullOrUndefined (Boolean) , "PrivacyProtectTechContact" :: NullOrUndefined (Boolean) } -> {"DomainName" :: (DomainName) , "IdnLangCode" :: NullOrUndefined (LangCode) , "DurationInYears" :: (DurationInYears) , "AutoRenew" :: NullOrUndefined (Boolean) , "AdminContact" :: (ContactDetail) , "RegistrantContact" :: (ContactDetail) , "TechContact" :: (ContactDetail) , "PrivacyProtectAdminContact" :: NullOrUndefined (Boolean) , "PrivacyProtectRegistrantContact" :: NullOrUndefined (Boolean) , "PrivacyProtectTechContact" :: NullOrUndefined (Boolean) } ) -> RegisterDomainRequest
-newRegisterDomainRequest' _AdminContact _DomainName _DurationInYears _RegistrantContact _TechContact customize = (RegisterDomainRequest <<< customize) { "AdminContact": _AdminContact, "DomainName": _DomainName, "DurationInYears": _DurationInYears, "RegistrantContact": _RegistrantContact, "TechContact": _TechContact, "AutoRenew": (NullOrUndefined Nothing), "IdnLangCode": (NullOrUndefined Nothing), "PrivacyProtectAdminContact": (NullOrUndefined Nothing), "PrivacyProtectRegistrantContact": (NullOrUndefined Nothing), "PrivacyProtectTechContact": (NullOrUndefined Nothing) }
+newRegisterDomainRequest' :: ContactDetail -> DomainName -> DurationInYears -> ContactDetail -> ContactDetail -> ( { "DomainName" :: (DomainName) , "IdnLangCode" :: Maybe (LangCode) , "DurationInYears" :: (DurationInYears) , "AutoRenew" :: Maybe (Boolean) , "AdminContact" :: (ContactDetail) , "RegistrantContact" :: (ContactDetail) , "TechContact" :: (ContactDetail) , "PrivacyProtectAdminContact" :: Maybe (Boolean) , "PrivacyProtectRegistrantContact" :: Maybe (Boolean) , "PrivacyProtectTechContact" :: Maybe (Boolean) } -> {"DomainName" :: (DomainName) , "IdnLangCode" :: Maybe (LangCode) , "DurationInYears" :: (DurationInYears) , "AutoRenew" :: Maybe (Boolean) , "AdminContact" :: (ContactDetail) , "RegistrantContact" :: (ContactDetail) , "TechContact" :: (ContactDetail) , "PrivacyProtectAdminContact" :: Maybe (Boolean) , "PrivacyProtectRegistrantContact" :: Maybe (Boolean) , "PrivacyProtectTechContact" :: Maybe (Boolean) } ) -> RegisterDomainRequest
+newRegisterDomainRequest' _AdminContact _DomainName _DurationInYears _RegistrantContact _TechContact customize = (RegisterDomainRequest <<< customize) { "AdminContact": _AdminContact, "DomainName": _DomainName, "DurationInYears": _DurationInYears, "RegistrantContact": _RegistrantContact, "TechContact": _TechContact, "AutoRenew": Nothing, "IdnLangCode": Nothing, "PrivacyProtectAdminContact": Nothing, "PrivacyProtectRegistrantContact": Nothing, "PrivacyProtectTechContact": Nothing }
 
 
 
@@ -1299,7 +1298,7 @@ instance encodeRegistryDomainId :: Encode RegistryDomainId where encode = generi
 -- | <p>A <code>RenewDomain</code> request includes the number of years that you want to renew for and the current expiration year.</p>
 newtype RenewDomainRequest = RenewDomainRequest 
   { "DomainName" :: (DomainName)
-  , "DurationInYears" :: NullOrUndefined (DurationInYears)
+  , "DurationInYears" :: Maybe (DurationInYears)
   , "CurrentExpiryYear" :: (CurrentExpiryYear)
   }
 derive instance newtypeRenewDomainRequest :: Newtype RenewDomainRequest _
@@ -1310,12 +1309,12 @@ instance encodeRenewDomainRequest :: Encode RenewDomainRequest where encode = ge
 
 -- | Constructs RenewDomainRequest from required parameters
 newRenewDomainRequest :: CurrentExpiryYear -> DomainName -> RenewDomainRequest
-newRenewDomainRequest _CurrentExpiryYear _DomainName = RenewDomainRequest { "CurrentExpiryYear": _CurrentExpiryYear, "DomainName": _DomainName, "DurationInYears": (NullOrUndefined Nothing) }
+newRenewDomainRequest _CurrentExpiryYear _DomainName = RenewDomainRequest { "CurrentExpiryYear": _CurrentExpiryYear, "DomainName": _DomainName, "DurationInYears": Nothing }
 
 -- | Constructs RenewDomainRequest's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newRenewDomainRequest' :: CurrentExpiryYear -> DomainName -> ( { "DomainName" :: (DomainName) , "DurationInYears" :: NullOrUndefined (DurationInYears) , "CurrentExpiryYear" :: (CurrentExpiryYear) } -> {"DomainName" :: (DomainName) , "DurationInYears" :: NullOrUndefined (DurationInYears) , "CurrentExpiryYear" :: (CurrentExpiryYear) } ) -> RenewDomainRequest
-newRenewDomainRequest' _CurrentExpiryYear _DomainName customize = (RenewDomainRequest <<< customize) { "CurrentExpiryYear": _CurrentExpiryYear, "DomainName": _DomainName, "DurationInYears": (NullOrUndefined Nothing) }
+newRenewDomainRequest' :: CurrentExpiryYear -> DomainName -> ( { "DomainName" :: (DomainName) , "DurationInYears" :: Maybe (DurationInYears) , "CurrentExpiryYear" :: (CurrentExpiryYear) } -> {"DomainName" :: (DomainName) , "DurationInYears" :: Maybe (DurationInYears) , "CurrentExpiryYear" :: (CurrentExpiryYear) } ) -> RenewDomainRequest
+newRenewDomainRequest' _CurrentExpiryYear _DomainName customize = (RenewDomainRequest <<< customize) { "CurrentExpiryYear": _CurrentExpiryYear, "DomainName": _DomainName, "DurationInYears": Nothing }
 
 
 
@@ -1349,7 +1348,7 @@ instance encodeReseller :: Encode Reseller where encode = genericEncode options
 
 
 newtype ResendContactReachabilityEmailRequest = ResendContactReachabilityEmailRequest 
-  { "domainName" :: NullOrUndefined (DomainName)
+  { "domainName" :: Maybe (DomainName)
   }
 derive instance newtypeResendContactReachabilityEmailRequest :: Newtype ResendContactReachabilityEmailRequest _
 derive instance repGenericResendContactReachabilityEmailRequest :: Generic ResendContactReachabilityEmailRequest _
@@ -1359,19 +1358,19 @@ instance encodeResendContactReachabilityEmailRequest :: Encode ResendContactReac
 
 -- | Constructs ResendContactReachabilityEmailRequest from required parameters
 newResendContactReachabilityEmailRequest :: ResendContactReachabilityEmailRequest
-newResendContactReachabilityEmailRequest  = ResendContactReachabilityEmailRequest { "domainName": (NullOrUndefined Nothing) }
+newResendContactReachabilityEmailRequest  = ResendContactReachabilityEmailRequest { "domainName": Nothing }
 
 -- | Constructs ResendContactReachabilityEmailRequest's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newResendContactReachabilityEmailRequest' :: ( { "domainName" :: NullOrUndefined (DomainName) } -> {"domainName" :: NullOrUndefined (DomainName) } ) -> ResendContactReachabilityEmailRequest
-newResendContactReachabilityEmailRequest'  customize = (ResendContactReachabilityEmailRequest <<< customize) { "domainName": (NullOrUndefined Nothing) }
+newResendContactReachabilityEmailRequest' :: ( { "domainName" :: Maybe (DomainName) } -> {"domainName" :: Maybe (DomainName) } ) -> ResendContactReachabilityEmailRequest
+newResendContactReachabilityEmailRequest'  customize = (ResendContactReachabilityEmailRequest <<< customize) { "domainName": Nothing }
 
 
 
 newtype ResendContactReachabilityEmailResponse = ResendContactReachabilityEmailResponse 
-  { "domainName" :: NullOrUndefined (DomainName)
-  , "emailAddress" :: NullOrUndefined (Email)
-  , "isAlreadyVerified" :: NullOrUndefined (Boolean)
+  { "domainName" :: Maybe (DomainName)
+  , "emailAddress" :: Maybe (Email)
+  , "isAlreadyVerified" :: Maybe (Boolean)
   }
 derive instance newtypeResendContactReachabilityEmailResponse :: Newtype ResendContactReachabilityEmailResponse _
 derive instance repGenericResendContactReachabilityEmailResponse :: Generic ResendContactReachabilityEmailResponse _
@@ -1381,12 +1380,12 @@ instance encodeResendContactReachabilityEmailResponse :: Encode ResendContactRea
 
 -- | Constructs ResendContactReachabilityEmailResponse from required parameters
 newResendContactReachabilityEmailResponse :: ResendContactReachabilityEmailResponse
-newResendContactReachabilityEmailResponse  = ResendContactReachabilityEmailResponse { "domainName": (NullOrUndefined Nothing), "emailAddress": (NullOrUndefined Nothing), "isAlreadyVerified": (NullOrUndefined Nothing) }
+newResendContactReachabilityEmailResponse  = ResendContactReachabilityEmailResponse { "domainName": Nothing, "emailAddress": Nothing, "isAlreadyVerified": Nothing }
 
 -- | Constructs ResendContactReachabilityEmailResponse's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newResendContactReachabilityEmailResponse' :: ( { "domainName" :: NullOrUndefined (DomainName) , "emailAddress" :: NullOrUndefined (Email) , "isAlreadyVerified" :: NullOrUndefined (Boolean) } -> {"domainName" :: NullOrUndefined (DomainName) , "emailAddress" :: NullOrUndefined (Email) , "isAlreadyVerified" :: NullOrUndefined (Boolean) } ) -> ResendContactReachabilityEmailResponse
-newResendContactReachabilityEmailResponse'  customize = (ResendContactReachabilityEmailResponse <<< customize) { "domainName": (NullOrUndefined Nothing), "emailAddress": (NullOrUndefined Nothing), "isAlreadyVerified": (NullOrUndefined Nothing) }
+newResendContactReachabilityEmailResponse' :: ( { "domainName" :: Maybe (DomainName) , "emailAddress" :: Maybe (Email) , "isAlreadyVerified" :: Maybe (Boolean) } -> {"domainName" :: Maybe (DomainName) , "emailAddress" :: Maybe (Email) , "isAlreadyVerified" :: Maybe (Boolean) } ) -> ResendContactReachabilityEmailResponse
+newResendContactReachabilityEmailResponse'  customize = (ResendContactReachabilityEmailResponse <<< customize) { "domainName": Nothing, "emailAddress": Nothing, "isAlreadyVerified": Nothing }
 
 
 
@@ -1443,7 +1442,7 @@ instance encodeState :: Encode State where encode = genericEncode options
 
 -- | <p>The top-level domain does not support this operation.</p>
 newtype TLDRulesViolation = TLDRulesViolation 
-  { "message" :: NullOrUndefined (ErrorMessage)
+  { "message" :: Maybe (ErrorMessage)
   }
 derive instance newtypeTLDRulesViolation :: Newtype TLDRulesViolation _
 derive instance repGenericTLDRulesViolation :: Generic TLDRulesViolation _
@@ -1453,19 +1452,19 @@ instance encodeTLDRulesViolation :: Encode TLDRulesViolation where encode = gene
 
 -- | Constructs TLDRulesViolation from required parameters
 newTLDRulesViolation :: TLDRulesViolation
-newTLDRulesViolation  = TLDRulesViolation { "message": (NullOrUndefined Nothing) }
+newTLDRulesViolation  = TLDRulesViolation { "message": Nothing }
 
 -- | Constructs TLDRulesViolation's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newTLDRulesViolation' :: ( { "message" :: NullOrUndefined (ErrorMessage) } -> {"message" :: NullOrUndefined (ErrorMessage) } ) -> TLDRulesViolation
-newTLDRulesViolation'  customize = (TLDRulesViolation <<< customize) { "message": (NullOrUndefined Nothing) }
+newTLDRulesViolation' :: ( { "message" :: Maybe (ErrorMessage) } -> {"message" :: Maybe (ErrorMessage) } ) -> TLDRulesViolation
+newTLDRulesViolation'  customize = (TLDRulesViolation <<< customize) { "message": Nothing }
 
 
 
 -- | <p>Each tag includes the following elements.</p>
 newtype Tag = Tag 
-  { "Key" :: NullOrUndefined (TagKey)
-  , "Value" :: NullOrUndefined (TagValue)
+  { "Key" :: Maybe (TagKey)
+  , "Value" :: Maybe (TagValue)
   }
 derive instance newtypeTag :: Newtype Tag _
 derive instance repGenericTag :: Generic Tag _
@@ -1475,12 +1474,12 @@ instance encodeTag :: Encode Tag where encode = genericEncode options
 
 -- | Constructs Tag from required parameters
 newTag :: Tag
-newTag  = Tag { "Key": (NullOrUndefined Nothing), "Value": (NullOrUndefined Nothing) }
+newTag  = Tag { "Key": Nothing, "Value": Nothing }
 
 -- | Constructs Tag's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newTag' :: ( { "Key" :: NullOrUndefined (TagKey) , "Value" :: NullOrUndefined (TagValue) } -> {"Key" :: NullOrUndefined (TagKey) , "Value" :: NullOrUndefined (TagValue) } ) -> Tag
-newTag'  customize = (Tag <<< customize) { "Key": (NullOrUndefined Nothing), "Value": (NullOrUndefined Nothing) }
+newTag' :: ( { "Key" :: Maybe (TagKey) , "Value" :: Maybe (TagValue) } -> {"Key" :: Maybe (TagKey) , "Value" :: Maybe (TagValue) } ) -> Tag
+newTag'  customize = (Tag <<< customize) { "Key": Nothing, "Value": Nothing }
 
 
 
@@ -1523,17 +1522,17 @@ instance encodeTagValue :: Encode TagValue where encode = genericEncode options
 -- | <p>The TransferDomain request includes the following elements.</p>
 newtype TransferDomainRequest = TransferDomainRequest 
   { "DomainName" :: (DomainName)
-  , "IdnLangCode" :: NullOrUndefined (LangCode)
+  , "IdnLangCode" :: Maybe (LangCode)
   , "DurationInYears" :: (DurationInYears)
-  , "Nameservers" :: NullOrUndefined (NameserverList)
-  , "AuthCode" :: NullOrUndefined (DomainAuthCode)
-  , "AutoRenew" :: NullOrUndefined (Boolean)
+  , "Nameservers" :: Maybe (NameserverList)
+  , "AuthCode" :: Maybe (DomainAuthCode)
+  , "AutoRenew" :: Maybe (Boolean)
   , "AdminContact" :: (ContactDetail)
   , "RegistrantContact" :: (ContactDetail)
   , "TechContact" :: (ContactDetail)
-  , "PrivacyProtectAdminContact" :: NullOrUndefined (Boolean)
-  , "PrivacyProtectRegistrantContact" :: NullOrUndefined (Boolean)
-  , "PrivacyProtectTechContact" :: NullOrUndefined (Boolean)
+  , "PrivacyProtectAdminContact" :: Maybe (Boolean)
+  , "PrivacyProtectRegistrantContact" :: Maybe (Boolean)
+  , "PrivacyProtectTechContact" :: Maybe (Boolean)
   }
 derive instance newtypeTransferDomainRequest :: Newtype TransferDomainRequest _
 derive instance repGenericTransferDomainRequest :: Generic TransferDomainRequest _
@@ -1543,12 +1542,12 @@ instance encodeTransferDomainRequest :: Encode TransferDomainRequest where encod
 
 -- | Constructs TransferDomainRequest from required parameters
 newTransferDomainRequest :: ContactDetail -> DomainName -> DurationInYears -> ContactDetail -> ContactDetail -> TransferDomainRequest
-newTransferDomainRequest _AdminContact _DomainName _DurationInYears _RegistrantContact _TechContact = TransferDomainRequest { "AdminContact": _AdminContact, "DomainName": _DomainName, "DurationInYears": _DurationInYears, "RegistrantContact": _RegistrantContact, "TechContact": _TechContact, "AuthCode": (NullOrUndefined Nothing), "AutoRenew": (NullOrUndefined Nothing), "IdnLangCode": (NullOrUndefined Nothing), "Nameservers": (NullOrUndefined Nothing), "PrivacyProtectAdminContact": (NullOrUndefined Nothing), "PrivacyProtectRegistrantContact": (NullOrUndefined Nothing), "PrivacyProtectTechContact": (NullOrUndefined Nothing) }
+newTransferDomainRequest _AdminContact _DomainName _DurationInYears _RegistrantContact _TechContact = TransferDomainRequest { "AdminContact": _AdminContact, "DomainName": _DomainName, "DurationInYears": _DurationInYears, "RegistrantContact": _RegistrantContact, "TechContact": _TechContact, "AuthCode": Nothing, "AutoRenew": Nothing, "IdnLangCode": Nothing, "Nameservers": Nothing, "PrivacyProtectAdminContact": Nothing, "PrivacyProtectRegistrantContact": Nothing, "PrivacyProtectTechContact": Nothing }
 
 -- | Constructs TransferDomainRequest's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newTransferDomainRequest' :: ContactDetail -> DomainName -> DurationInYears -> ContactDetail -> ContactDetail -> ( { "DomainName" :: (DomainName) , "IdnLangCode" :: NullOrUndefined (LangCode) , "DurationInYears" :: (DurationInYears) , "Nameservers" :: NullOrUndefined (NameserverList) , "AuthCode" :: NullOrUndefined (DomainAuthCode) , "AutoRenew" :: NullOrUndefined (Boolean) , "AdminContact" :: (ContactDetail) , "RegistrantContact" :: (ContactDetail) , "TechContact" :: (ContactDetail) , "PrivacyProtectAdminContact" :: NullOrUndefined (Boolean) , "PrivacyProtectRegistrantContact" :: NullOrUndefined (Boolean) , "PrivacyProtectTechContact" :: NullOrUndefined (Boolean) } -> {"DomainName" :: (DomainName) , "IdnLangCode" :: NullOrUndefined (LangCode) , "DurationInYears" :: (DurationInYears) , "Nameservers" :: NullOrUndefined (NameserverList) , "AuthCode" :: NullOrUndefined (DomainAuthCode) , "AutoRenew" :: NullOrUndefined (Boolean) , "AdminContact" :: (ContactDetail) , "RegistrantContact" :: (ContactDetail) , "TechContact" :: (ContactDetail) , "PrivacyProtectAdminContact" :: NullOrUndefined (Boolean) , "PrivacyProtectRegistrantContact" :: NullOrUndefined (Boolean) , "PrivacyProtectTechContact" :: NullOrUndefined (Boolean) } ) -> TransferDomainRequest
-newTransferDomainRequest' _AdminContact _DomainName _DurationInYears _RegistrantContact _TechContact customize = (TransferDomainRequest <<< customize) { "AdminContact": _AdminContact, "DomainName": _DomainName, "DurationInYears": _DurationInYears, "RegistrantContact": _RegistrantContact, "TechContact": _TechContact, "AuthCode": (NullOrUndefined Nothing), "AutoRenew": (NullOrUndefined Nothing), "IdnLangCode": (NullOrUndefined Nothing), "Nameservers": (NullOrUndefined Nothing), "PrivacyProtectAdminContact": (NullOrUndefined Nothing), "PrivacyProtectRegistrantContact": (NullOrUndefined Nothing), "PrivacyProtectTechContact": (NullOrUndefined Nothing) }
+newTransferDomainRequest' :: ContactDetail -> DomainName -> DurationInYears -> ContactDetail -> ContactDetail -> ( { "DomainName" :: (DomainName) , "IdnLangCode" :: Maybe (LangCode) , "DurationInYears" :: (DurationInYears) , "Nameservers" :: Maybe (NameserverList) , "AuthCode" :: Maybe (DomainAuthCode) , "AutoRenew" :: Maybe (Boolean) , "AdminContact" :: (ContactDetail) , "RegistrantContact" :: (ContactDetail) , "TechContact" :: (ContactDetail) , "PrivacyProtectAdminContact" :: Maybe (Boolean) , "PrivacyProtectRegistrantContact" :: Maybe (Boolean) , "PrivacyProtectTechContact" :: Maybe (Boolean) } -> {"DomainName" :: (DomainName) , "IdnLangCode" :: Maybe (LangCode) , "DurationInYears" :: (DurationInYears) , "Nameservers" :: Maybe (NameserverList) , "AuthCode" :: Maybe (DomainAuthCode) , "AutoRenew" :: Maybe (Boolean) , "AdminContact" :: (ContactDetail) , "RegistrantContact" :: (ContactDetail) , "TechContact" :: (ContactDetail) , "PrivacyProtectAdminContact" :: Maybe (Boolean) , "PrivacyProtectRegistrantContact" :: Maybe (Boolean) , "PrivacyProtectTechContact" :: Maybe (Boolean) } ) -> TransferDomainRequest
+newTransferDomainRequest' _AdminContact _DomainName _DurationInYears _RegistrantContact _TechContact customize = (TransferDomainRequest <<< customize) { "AdminContact": _AdminContact, "DomainName": _DomainName, "DurationInYears": _DurationInYears, "RegistrantContact": _RegistrantContact, "TechContact": _TechContact, "AuthCode": Nothing, "AutoRenew": Nothing, "IdnLangCode": Nothing, "Nameservers": Nothing, "PrivacyProtectAdminContact": Nothing, "PrivacyProtectRegistrantContact": Nothing, "PrivacyProtectTechContact": Nothing }
 
 
 
@@ -1585,7 +1584,7 @@ instance encodeTransferable :: Encode Transferable where encode = genericEncode 
 
 -- | <p>Amazon Route 53 does not support this top-level domain (TLD).</p>
 newtype UnsupportedTLD = UnsupportedTLD 
-  { "message" :: NullOrUndefined (ErrorMessage)
+  { "message" :: Maybe (ErrorMessage)
   }
 derive instance newtypeUnsupportedTLD :: Newtype UnsupportedTLD _
 derive instance repGenericUnsupportedTLD :: Generic UnsupportedTLD _
@@ -1595,21 +1594,21 @@ instance encodeUnsupportedTLD :: Encode UnsupportedTLD where encode = genericEnc
 
 -- | Constructs UnsupportedTLD from required parameters
 newUnsupportedTLD :: UnsupportedTLD
-newUnsupportedTLD  = UnsupportedTLD { "message": (NullOrUndefined Nothing) }
+newUnsupportedTLD  = UnsupportedTLD { "message": Nothing }
 
 -- | Constructs UnsupportedTLD's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newUnsupportedTLD' :: ( { "message" :: NullOrUndefined (ErrorMessage) } -> {"message" :: NullOrUndefined (ErrorMessage) } ) -> UnsupportedTLD
-newUnsupportedTLD'  customize = (UnsupportedTLD <<< customize) { "message": (NullOrUndefined Nothing) }
+newUnsupportedTLD' :: ( { "message" :: Maybe (ErrorMessage) } -> {"message" :: Maybe (ErrorMessage) } ) -> UnsupportedTLD
+newUnsupportedTLD'  customize = (UnsupportedTLD <<< customize) { "message": Nothing }
 
 
 
 -- | <p>The UpdateDomainContactPrivacy request includes the following elements.</p>
 newtype UpdateDomainContactPrivacyRequest = UpdateDomainContactPrivacyRequest 
   { "DomainName" :: (DomainName)
-  , "AdminPrivacy" :: NullOrUndefined (Boolean)
-  , "RegistrantPrivacy" :: NullOrUndefined (Boolean)
-  , "TechPrivacy" :: NullOrUndefined (Boolean)
+  , "AdminPrivacy" :: Maybe (Boolean)
+  , "RegistrantPrivacy" :: Maybe (Boolean)
+  , "TechPrivacy" :: Maybe (Boolean)
   }
 derive instance newtypeUpdateDomainContactPrivacyRequest :: Newtype UpdateDomainContactPrivacyRequest _
 derive instance repGenericUpdateDomainContactPrivacyRequest :: Generic UpdateDomainContactPrivacyRequest _
@@ -1619,12 +1618,12 @@ instance encodeUpdateDomainContactPrivacyRequest :: Encode UpdateDomainContactPr
 
 -- | Constructs UpdateDomainContactPrivacyRequest from required parameters
 newUpdateDomainContactPrivacyRequest :: DomainName -> UpdateDomainContactPrivacyRequest
-newUpdateDomainContactPrivacyRequest _DomainName = UpdateDomainContactPrivacyRequest { "DomainName": _DomainName, "AdminPrivacy": (NullOrUndefined Nothing), "RegistrantPrivacy": (NullOrUndefined Nothing), "TechPrivacy": (NullOrUndefined Nothing) }
+newUpdateDomainContactPrivacyRequest _DomainName = UpdateDomainContactPrivacyRequest { "DomainName": _DomainName, "AdminPrivacy": Nothing, "RegistrantPrivacy": Nothing, "TechPrivacy": Nothing }
 
 -- | Constructs UpdateDomainContactPrivacyRequest's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newUpdateDomainContactPrivacyRequest' :: DomainName -> ( { "DomainName" :: (DomainName) , "AdminPrivacy" :: NullOrUndefined (Boolean) , "RegistrantPrivacy" :: NullOrUndefined (Boolean) , "TechPrivacy" :: NullOrUndefined (Boolean) } -> {"DomainName" :: (DomainName) , "AdminPrivacy" :: NullOrUndefined (Boolean) , "RegistrantPrivacy" :: NullOrUndefined (Boolean) , "TechPrivacy" :: NullOrUndefined (Boolean) } ) -> UpdateDomainContactPrivacyRequest
-newUpdateDomainContactPrivacyRequest' _DomainName customize = (UpdateDomainContactPrivacyRequest <<< customize) { "DomainName": _DomainName, "AdminPrivacy": (NullOrUndefined Nothing), "RegistrantPrivacy": (NullOrUndefined Nothing), "TechPrivacy": (NullOrUndefined Nothing) }
+newUpdateDomainContactPrivacyRequest' :: DomainName -> ( { "DomainName" :: (DomainName) , "AdminPrivacy" :: Maybe (Boolean) , "RegistrantPrivacy" :: Maybe (Boolean) , "TechPrivacy" :: Maybe (Boolean) } -> {"DomainName" :: (DomainName) , "AdminPrivacy" :: Maybe (Boolean) , "RegistrantPrivacy" :: Maybe (Boolean) , "TechPrivacy" :: Maybe (Boolean) } ) -> UpdateDomainContactPrivacyRequest
+newUpdateDomainContactPrivacyRequest' _DomainName customize = (UpdateDomainContactPrivacyRequest <<< customize) { "DomainName": _DomainName, "AdminPrivacy": Nothing, "RegistrantPrivacy": Nothing, "TechPrivacy": Nothing }
 
 
 
@@ -1652,9 +1651,9 @@ newUpdateDomainContactPrivacyResponse' _OperationId customize = (UpdateDomainCon
 -- | <p>The UpdateDomainContact request includes the following elements.</p>
 newtype UpdateDomainContactRequest = UpdateDomainContactRequest 
   { "DomainName" :: (DomainName)
-  , "AdminContact" :: NullOrUndefined (ContactDetail)
-  , "RegistrantContact" :: NullOrUndefined (ContactDetail)
-  , "TechContact" :: NullOrUndefined (ContactDetail)
+  , "AdminContact" :: Maybe (ContactDetail)
+  , "RegistrantContact" :: Maybe (ContactDetail)
+  , "TechContact" :: Maybe (ContactDetail)
   }
 derive instance newtypeUpdateDomainContactRequest :: Newtype UpdateDomainContactRequest _
 derive instance repGenericUpdateDomainContactRequest :: Generic UpdateDomainContactRequest _
@@ -1664,12 +1663,12 @@ instance encodeUpdateDomainContactRequest :: Encode UpdateDomainContactRequest w
 
 -- | Constructs UpdateDomainContactRequest from required parameters
 newUpdateDomainContactRequest :: DomainName -> UpdateDomainContactRequest
-newUpdateDomainContactRequest _DomainName = UpdateDomainContactRequest { "DomainName": _DomainName, "AdminContact": (NullOrUndefined Nothing), "RegistrantContact": (NullOrUndefined Nothing), "TechContact": (NullOrUndefined Nothing) }
+newUpdateDomainContactRequest _DomainName = UpdateDomainContactRequest { "DomainName": _DomainName, "AdminContact": Nothing, "RegistrantContact": Nothing, "TechContact": Nothing }
 
 -- | Constructs UpdateDomainContactRequest's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newUpdateDomainContactRequest' :: DomainName -> ( { "DomainName" :: (DomainName) , "AdminContact" :: NullOrUndefined (ContactDetail) , "RegistrantContact" :: NullOrUndefined (ContactDetail) , "TechContact" :: NullOrUndefined (ContactDetail) } -> {"DomainName" :: (DomainName) , "AdminContact" :: NullOrUndefined (ContactDetail) , "RegistrantContact" :: NullOrUndefined (ContactDetail) , "TechContact" :: NullOrUndefined (ContactDetail) } ) -> UpdateDomainContactRequest
-newUpdateDomainContactRequest' _DomainName customize = (UpdateDomainContactRequest <<< customize) { "DomainName": _DomainName, "AdminContact": (NullOrUndefined Nothing), "RegistrantContact": (NullOrUndefined Nothing), "TechContact": (NullOrUndefined Nothing) }
+newUpdateDomainContactRequest' :: DomainName -> ( { "DomainName" :: (DomainName) , "AdminContact" :: Maybe (ContactDetail) , "RegistrantContact" :: Maybe (ContactDetail) , "TechContact" :: Maybe (ContactDetail) } -> {"DomainName" :: (DomainName) , "AdminContact" :: Maybe (ContactDetail) , "RegistrantContact" :: Maybe (ContactDetail) , "TechContact" :: Maybe (ContactDetail) } ) -> UpdateDomainContactRequest
+newUpdateDomainContactRequest' _DomainName customize = (UpdateDomainContactRequest <<< customize) { "DomainName": _DomainName, "AdminContact": Nothing, "RegistrantContact": Nothing, "TechContact": Nothing }
 
 
 
@@ -1697,7 +1696,7 @@ newUpdateDomainContactResponse' _OperationId customize = (UpdateDomainContactRes
 -- | <p>Replaces the current set of name servers for the domain with the specified set of name servers. If you use Amazon Route 53 as your DNS service, specify the four name servers in the delegation set for the hosted zone for the domain.</p> <p>If successful, this operation returns an operation ID that you can use to track the progress and completion of the action. If the request is not completed successfully, the domain registrant will be notified by email. </p>
 newtype UpdateDomainNameserversRequest = UpdateDomainNameserversRequest 
   { "DomainName" :: (DomainName)
-  , "FIAuthKey" :: NullOrUndefined (FIAuthKey)
+  , "FIAuthKey" :: Maybe (FIAuthKey)
   , "Nameservers" :: (NameserverList)
   }
 derive instance newtypeUpdateDomainNameserversRequest :: Newtype UpdateDomainNameserversRequest _
@@ -1708,12 +1707,12 @@ instance encodeUpdateDomainNameserversRequest :: Encode UpdateDomainNameserversR
 
 -- | Constructs UpdateDomainNameserversRequest from required parameters
 newUpdateDomainNameserversRequest :: DomainName -> NameserverList -> UpdateDomainNameserversRequest
-newUpdateDomainNameserversRequest _DomainName _Nameservers = UpdateDomainNameserversRequest { "DomainName": _DomainName, "Nameservers": _Nameservers, "FIAuthKey": (NullOrUndefined Nothing) }
+newUpdateDomainNameserversRequest _DomainName _Nameservers = UpdateDomainNameserversRequest { "DomainName": _DomainName, "Nameservers": _Nameservers, "FIAuthKey": Nothing }
 
 -- | Constructs UpdateDomainNameserversRequest's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newUpdateDomainNameserversRequest' :: DomainName -> NameserverList -> ( { "DomainName" :: (DomainName) , "FIAuthKey" :: NullOrUndefined (FIAuthKey) , "Nameservers" :: (NameserverList) } -> {"DomainName" :: (DomainName) , "FIAuthKey" :: NullOrUndefined (FIAuthKey) , "Nameservers" :: (NameserverList) } ) -> UpdateDomainNameserversRequest
-newUpdateDomainNameserversRequest' _DomainName _Nameservers customize = (UpdateDomainNameserversRequest <<< customize) { "DomainName": _DomainName, "Nameservers": _Nameservers, "FIAuthKey": (NullOrUndefined Nothing) }
+newUpdateDomainNameserversRequest' :: DomainName -> NameserverList -> ( { "DomainName" :: (DomainName) , "FIAuthKey" :: Maybe (FIAuthKey) , "Nameservers" :: (NameserverList) } -> {"DomainName" :: (DomainName) , "FIAuthKey" :: Maybe (FIAuthKey) , "Nameservers" :: (NameserverList) } ) -> UpdateDomainNameserversRequest
+newUpdateDomainNameserversRequest' _DomainName _Nameservers customize = (UpdateDomainNameserversRequest <<< customize) { "DomainName": _DomainName, "Nameservers": _Nameservers, "FIAuthKey": Nothing }
 
 
 
@@ -1741,7 +1740,7 @@ newUpdateDomainNameserversResponse' _OperationId customize = (UpdateDomainNamese
 -- | <p>The UpdateTagsForDomainRequest includes the following elements.</p>
 newtype UpdateTagsForDomainRequest = UpdateTagsForDomainRequest 
   { "DomainName" :: (DomainName)
-  , "TagsToUpdate" :: NullOrUndefined (TagList)
+  , "TagsToUpdate" :: Maybe (TagList)
   }
 derive instance newtypeUpdateTagsForDomainRequest :: Newtype UpdateTagsForDomainRequest _
 derive instance repGenericUpdateTagsForDomainRequest :: Generic UpdateTagsForDomainRequest _
@@ -1751,12 +1750,12 @@ instance encodeUpdateTagsForDomainRequest :: Encode UpdateTagsForDomainRequest w
 
 -- | Constructs UpdateTagsForDomainRequest from required parameters
 newUpdateTagsForDomainRequest :: DomainName -> UpdateTagsForDomainRequest
-newUpdateTagsForDomainRequest _DomainName = UpdateTagsForDomainRequest { "DomainName": _DomainName, "TagsToUpdate": (NullOrUndefined Nothing) }
+newUpdateTagsForDomainRequest _DomainName = UpdateTagsForDomainRequest { "DomainName": _DomainName, "TagsToUpdate": Nothing }
 
 -- | Constructs UpdateTagsForDomainRequest's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newUpdateTagsForDomainRequest' :: DomainName -> ( { "DomainName" :: (DomainName) , "TagsToUpdate" :: NullOrUndefined (TagList) } -> {"DomainName" :: (DomainName) , "TagsToUpdate" :: NullOrUndefined (TagList) } ) -> UpdateTagsForDomainRequest
-newUpdateTagsForDomainRequest' _DomainName customize = (UpdateTagsForDomainRequest <<< customize) { "DomainName": _DomainName, "TagsToUpdate": (NullOrUndefined Nothing) }
+newUpdateTagsForDomainRequest' :: DomainName -> ( { "DomainName" :: (DomainName) , "TagsToUpdate" :: Maybe (TagList) } -> {"DomainName" :: (DomainName) , "TagsToUpdate" :: Maybe (TagList) } ) -> UpdateTagsForDomainRequest
+newUpdateTagsForDomainRequest' _DomainName customize = (UpdateTagsForDomainRequest <<< customize) { "DomainName": _DomainName, "TagsToUpdate": Nothing }
 
 
 
@@ -1771,10 +1770,10 @@ instance encodeUpdateTagsForDomainResponse :: Encode UpdateTagsForDomainResponse
 
 -- | <p>The ViewBilling request includes the following elements.</p>
 newtype ViewBillingRequest = ViewBillingRequest 
-  { "Start" :: NullOrUndefined (Types.Timestamp)
-  , "End" :: NullOrUndefined (Types.Timestamp)
-  , "Marker" :: NullOrUndefined (PageMarker)
-  , "MaxItems" :: NullOrUndefined (PageMaxItems)
+  { "Start" :: Maybe (Types.Timestamp)
+  , "End" :: Maybe (Types.Timestamp)
+  , "Marker" :: Maybe (PageMarker)
+  , "MaxItems" :: Maybe (PageMaxItems)
   }
 derive instance newtypeViewBillingRequest :: Newtype ViewBillingRequest _
 derive instance repGenericViewBillingRequest :: Generic ViewBillingRequest _
@@ -1784,19 +1783,19 @@ instance encodeViewBillingRequest :: Encode ViewBillingRequest where encode = ge
 
 -- | Constructs ViewBillingRequest from required parameters
 newViewBillingRequest :: ViewBillingRequest
-newViewBillingRequest  = ViewBillingRequest { "End": (NullOrUndefined Nothing), "Marker": (NullOrUndefined Nothing), "MaxItems": (NullOrUndefined Nothing), "Start": (NullOrUndefined Nothing) }
+newViewBillingRequest  = ViewBillingRequest { "End": Nothing, "Marker": Nothing, "MaxItems": Nothing, "Start": Nothing }
 
 -- | Constructs ViewBillingRequest's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newViewBillingRequest' :: ( { "Start" :: NullOrUndefined (Types.Timestamp) , "End" :: NullOrUndefined (Types.Timestamp) , "Marker" :: NullOrUndefined (PageMarker) , "MaxItems" :: NullOrUndefined (PageMaxItems) } -> {"Start" :: NullOrUndefined (Types.Timestamp) , "End" :: NullOrUndefined (Types.Timestamp) , "Marker" :: NullOrUndefined (PageMarker) , "MaxItems" :: NullOrUndefined (PageMaxItems) } ) -> ViewBillingRequest
-newViewBillingRequest'  customize = (ViewBillingRequest <<< customize) { "End": (NullOrUndefined Nothing), "Marker": (NullOrUndefined Nothing), "MaxItems": (NullOrUndefined Nothing), "Start": (NullOrUndefined Nothing) }
+newViewBillingRequest' :: ( { "Start" :: Maybe (Types.Timestamp) , "End" :: Maybe (Types.Timestamp) , "Marker" :: Maybe (PageMarker) , "MaxItems" :: Maybe (PageMaxItems) } -> {"Start" :: Maybe (Types.Timestamp) , "End" :: Maybe (Types.Timestamp) , "Marker" :: Maybe (PageMarker) , "MaxItems" :: Maybe (PageMaxItems) } ) -> ViewBillingRequest
+newViewBillingRequest'  customize = (ViewBillingRequest <<< customize) { "End": Nothing, "Marker": Nothing, "MaxItems": Nothing, "Start": Nothing }
 
 
 
 -- | <p>The ViewBilling response includes the following elements.</p>
 newtype ViewBillingResponse = ViewBillingResponse 
-  { "NextPageMarker" :: NullOrUndefined (PageMarker)
-  , "BillingRecords" :: NullOrUndefined (BillingRecords)
+  { "NextPageMarker" :: Maybe (PageMarker)
+  , "BillingRecords" :: Maybe (BillingRecords)
   }
 derive instance newtypeViewBillingResponse :: Newtype ViewBillingResponse _
 derive instance repGenericViewBillingResponse :: Generic ViewBillingResponse _
@@ -1806,12 +1805,12 @@ instance encodeViewBillingResponse :: Encode ViewBillingResponse where encode = 
 
 -- | Constructs ViewBillingResponse from required parameters
 newViewBillingResponse :: ViewBillingResponse
-newViewBillingResponse  = ViewBillingResponse { "BillingRecords": (NullOrUndefined Nothing), "NextPageMarker": (NullOrUndefined Nothing) }
+newViewBillingResponse  = ViewBillingResponse { "BillingRecords": Nothing, "NextPageMarker": Nothing }
 
 -- | Constructs ViewBillingResponse's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newViewBillingResponse' :: ( { "NextPageMarker" :: NullOrUndefined (PageMarker) , "BillingRecords" :: NullOrUndefined (BillingRecords) } -> {"NextPageMarker" :: NullOrUndefined (PageMarker) , "BillingRecords" :: NullOrUndefined (BillingRecords) } ) -> ViewBillingResponse
-newViewBillingResponse'  customize = (ViewBillingResponse <<< customize) { "BillingRecords": (NullOrUndefined Nothing), "NextPageMarker": (NullOrUndefined Nothing) }
+newViewBillingResponse' :: ( { "NextPageMarker" :: Maybe (PageMarker) , "BillingRecords" :: Maybe (BillingRecords) } -> {"NextPageMarker" :: Maybe (PageMarker) , "BillingRecords" :: Maybe (BillingRecords) } ) -> ViewBillingResponse
+newViewBillingResponse'  customize = (ViewBillingResponse <<< customize) { "BillingRecords": Nothing, "NextPageMarker": Nothing }
 
 
 

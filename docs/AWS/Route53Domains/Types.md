@@ -26,7 +26,7 @@ Encode AddressLine
 
 ``` purescript
 newtype BillingRecord
-  = BillingRecord { "DomainName" :: NullOrUndefined (DomainName), "Operation" :: NullOrUndefined (OperationType), "InvoiceId" :: NullOrUndefined (InvoiceId), "BillDate" :: NullOrUndefined (Timestamp), "Price" :: NullOrUndefined (Price) }
+  = BillingRecord { "DomainName" :: Maybe (DomainName), "Operation" :: Maybe (OperationType), "InvoiceId" :: Maybe (InvoiceId), "BillDate" :: Maybe (Timestamp), "Price" :: Maybe (Price) }
 ```
 
 <p>Information for one billing record.</p>
@@ -51,7 +51,7 @@ Constructs BillingRecord from required parameters
 #### `newBillingRecord'`
 
 ``` purescript
-newBillingRecord' :: ({ "DomainName" :: NullOrUndefined (DomainName), "Operation" :: NullOrUndefined (OperationType), "InvoiceId" :: NullOrUndefined (InvoiceId), "BillDate" :: NullOrUndefined (Timestamp), "Price" :: NullOrUndefined (Price) } -> { "DomainName" :: NullOrUndefined (DomainName), "Operation" :: NullOrUndefined (OperationType), "InvoiceId" :: NullOrUndefined (InvoiceId), "BillDate" :: NullOrUndefined (Timestamp), "Price" :: NullOrUndefined (Price) }) -> BillingRecord
+newBillingRecord' :: ({ "DomainName" :: Maybe (DomainName), "Operation" :: Maybe (OperationType), "InvoiceId" :: Maybe (InvoiceId), "BillDate" :: Maybe (Timestamp), "Price" :: Maybe (Price) } -> { "DomainName" :: Maybe (DomainName), "Operation" :: Maybe (OperationType), "InvoiceId" :: Maybe (InvoiceId), "BillDate" :: Maybe (Timestamp), "Price" :: Maybe (Price) }) -> BillingRecord
 ```
 
 Constructs BillingRecord's fields from required parameters
@@ -76,7 +76,7 @@ Encode BillingRecords
 
 ``` purescript
 newtype CheckDomainAvailabilityRequest
-  = CheckDomainAvailabilityRequest { "DomainName" :: DomainName, "IdnLangCode" :: NullOrUndefined (LangCode) }
+  = CheckDomainAvailabilityRequest { "DomainName" :: DomainName, "IdnLangCode" :: Maybe (LangCode) }
 ```
 
 <p>The CheckDomainAvailability request contains the following elements.</p>
@@ -101,7 +101,7 @@ Constructs CheckDomainAvailabilityRequest from required parameters
 #### `newCheckDomainAvailabilityRequest'`
 
 ``` purescript
-newCheckDomainAvailabilityRequest' :: DomainName -> ({ "DomainName" :: DomainName, "IdnLangCode" :: NullOrUndefined (LangCode) } -> { "DomainName" :: DomainName, "IdnLangCode" :: NullOrUndefined (LangCode) }) -> CheckDomainAvailabilityRequest
+newCheckDomainAvailabilityRequest' :: DomainName -> ({ "DomainName" :: DomainName, "IdnLangCode" :: Maybe (LangCode) } -> { "DomainName" :: DomainName, "IdnLangCode" :: Maybe (LangCode) }) -> CheckDomainAvailabilityRequest
 ```
 
 Constructs CheckDomainAvailabilityRequest's fields from required parameters
@@ -144,7 +144,7 @@ Constructs CheckDomainAvailabilityResponse's fields from required parameters
 
 ``` purescript
 newtype CheckDomainTransferabilityRequest
-  = CheckDomainTransferabilityRequest { "DomainName" :: DomainName, "AuthCode" :: NullOrUndefined (DomainAuthCode) }
+  = CheckDomainTransferabilityRequest { "DomainName" :: DomainName, "AuthCode" :: Maybe (DomainAuthCode) }
 ```
 
 <p>The CheckDomainTransferability request contains the following elements.</p>
@@ -169,7 +169,7 @@ Constructs CheckDomainTransferabilityRequest from required parameters
 #### `newCheckDomainTransferabilityRequest'`
 
 ``` purescript
-newCheckDomainTransferabilityRequest' :: DomainName -> ({ "DomainName" :: DomainName, "AuthCode" :: NullOrUndefined (DomainAuthCode) } -> { "DomainName" :: DomainName, "AuthCode" :: NullOrUndefined (DomainAuthCode) }) -> CheckDomainTransferabilityRequest
+newCheckDomainTransferabilityRequest' :: DomainName -> ({ "DomainName" :: DomainName, "AuthCode" :: Maybe (DomainAuthCode) } -> { "DomainName" :: DomainName, "AuthCode" :: Maybe (DomainAuthCode) }) -> CheckDomainTransferabilityRequest
 ```
 
 Constructs CheckDomainTransferabilityRequest's fields from required parameters
@@ -228,7 +228,7 @@ Encode City
 
 ``` purescript
 newtype ContactDetail
-  = ContactDetail { "FirstName" :: NullOrUndefined (ContactName), "LastName" :: NullOrUndefined (ContactName), "ContactType" :: NullOrUndefined (ContactType), "OrganizationName" :: NullOrUndefined (ContactName), "AddressLine1" :: NullOrUndefined (AddressLine), "AddressLine2" :: NullOrUndefined (AddressLine), "City" :: NullOrUndefined (City), "State" :: NullOrUndefined (State), "CountryCode" :: NullOrUndefined (CountryCode), "ZipCode" :: NullOrUndefined (ZipCode), "PhoneNumber" :: NullOrUndefined (ContactNumber), "Email" :: NullOrUndefined (Email), "Fax" :: NullOrUndefined (ContactNumber), "ExtraParams" :: NullOrUndefined (ExtraParamList) }
+  = ContactDetail { "FirstName" :: Maybe (ContactName), "LastName" :: Maybe (ContactName), "ContactType" :: Maybe (ContactType), "OrganizationName" :: Maybe (ContactName), "AddressLine1" :: Maybe (AddressLine), "AddressLine2" :: Maybe (AddressLine), "City" :: Maybe (City), "State" :: Maybe (State), "CountryCode" :: Maybe (CountryCode), "ZipCode" :: Maybe (ZipCode), "PhoneNumber" :: Maybe (ContactNumber), "Email" :: Maybe (Email), "Fax" :: Maybe (ContactNumber), "ExtraParams" :: Maybe (ExtraParamList) }
 ```
 
 <p>ContactDetail includes the following elements.</p>
@@ -253,7 +253,7 @@ Constructs ContactDetail from required parameters
 #### `newContactDetail'`
 
 ``` purescript
-newContactDetail' :: ({ "FirstName" :: NullOrUndefined (ContactName), "LastName" :: NullOrUndefined (ContactName), "ContactType" :: NullOrUndefined (ContactType), "OrganizationName" :: NullOrUndefined (ContactName), "AddressLine1" :: NullOrUndefined (AddressLine), "AddressLine2" :: NullOrUndefined (AddressLine), "City" :: NullOrUndefined (City), "State" :: NullOrUndefined (State), "CountryCode" :: NullOrUndefined (CountryCode), "ZipCode" :: NullOrUndefined (ZipCode), "PhoneNumber" :: NullOrUndefined (ContactNumber), "Email" :: NullOrUndefined (Email), "Fax" :: NullOrUndefined (ContactNumber), "ExtraParams" :: NullOrUndefined (ExtraParamList) } -> { "FirstName" :: NullOrUndefined (ContactName), "LastName" :: NullOrUndefined (ContactName), "ContactType" :: NullOrUndefined (ContactType), "OrganizationName" :: NullOrUndefined (ContactName), "AddressLine1" :: NullOrUndefined (AddressLine), "AddressLine2" :: NullOrUndefined (AddressLine), "City" :: NullOrUndefined (City), "State" :: NullOrUndefined (State), "CountryCode" :: NullOrUndefined (CountryCode), "ZipCode" :: NullOrUndefined (ZipCode), "PhoneNumber" :: NullOrUndefined (ContactNumber), "Email" :: NullOrUndefined (Email), "Fax" :: NullOrUndefined (ContactNumber), "ExtraParams" :: NullOrUndefined (ExtraParamList) }) -> ContactDetail
+newContactDetail' :: ({ "FirstName" :: Maybe (ContactName), "LastName" :: Maybe (ContactName), "ContactType" :: Maybe (ContactType), "OrganizationName" :: Maybe (ContactName), "AddressLine1" :: Maybe (AddressLine), "AddressLine2" :: Maybe (AddressLine), "City" :: Maybe (City), "State" :: Maybe (State), "CountryCode" :: Maybe (CountryCode), "ZipCode" :: Maybe (ZipCode), "PhoneNumber" :: Maybe (ContactNumber), "Email" :: Maybe (Email), "Fax" :: Maybe (ContactNumber), "ExtraParams" :: Maybe (ExtraParamList) } -> { "FirstName" :: Maybe (ContactName), "LastName" :: Maybe (ContactName), "ContactType" :: Maybe (ContactType), "OrganizationName" :: Maybe (ContactName), "AddressLine1" :: Maybe (AddressLine), "AddressLine2" :: Maybe (AddressLine), "City" :: Maybe (City), "State" :: Maybe (State), "CountryCode" :: Maybe (CountryCode), "ZipCode" :: Maybe (ZipCode), "PhoneNumber" :: Maybe (ContactNumber), "Email" :: Maybe (Email), "Fax" :: Maybe (ContactNumber), "ExtraParams" :: Maybe (ExtraParamList) }) -> ContactDetail
 ```
 
 Constructs ContactDetail's fields from required parameters
@@ -556,7 +556,7 @@ Encode DomainAvailability
 
 ``` purescript
 newtype DomainLimitExceeded
-  = DomainLimitExceeded { message :: NullOrUndefined (ErrorMessage) }
+  = DomainLimitExceeded { message :: Maybe (ErrorMessage) }
 ```
 
 <p>The number of domains has exceeded the allowed threshold for the account.</p>
@@ -581,7 +581,7 @@ Constructs DomainLimitExceeded from required parameters
 #### `newDomainLimitExceeded'`
 
 ``` purescript
-newDomainLimitExceeded' :: ({ message :: NullOrUndefined (ErrorMessage) } -> { message :: NullOrUndefined (ErrorMessage) }) -> DomainLimitExceeded
+newDomainLimitExceeded' :: ({ message :: Maybe (ErrorMessage) } -> { message :: Maybe (ErrorMessage) }) -> DomainLimitExceeded
 ```
 
 Constructs DomainLimitExceeded's fields from required parameters
@@ -638,7 +638,7 @@ Encode DomainStatusList
 
 ``` purescript
 newtype DomainSuggestion
-  = DomainSuggestion { "DomainName" :: NullOrUndefined (DomainName), "Availability" :: NullOrUndefined (String) }
+  = DomainSuggestion { "DomainName" :: Maybe (DomainName), "Availability" :: Maybe (String) }
 ```
 
 <p>Information about one suggested domain name.</p>
@@ -663,7 +663,7 @@ Constructs DomainSuggestion from required parameters
 #### `newDomainSuggestion'`
 
 ``` purescript
-newDomainSuggestion' :: ({ "DomainName" :: NullOrUndefined (DomainName), "Availability" :: NullOrUndefined (String) } -> { "DomainName" :: NullOrUndefined (DomainName), "Availability" :: NullOrUndefined (String) }) -> DomainSuggestion
+newDomainSuggestion' :: ({ "DomainName" :: Maybe (DomainName), "Availability" :: Maybe (String) } -> { "DomainName" :: Maybe (DomainName), "Availability" :: Maybe (String) }) -> DomainSuggestion
 ```
 
 Constructs DomainSuggestion's fields from required parameters
@@ -688,7 +688,7 @@ Encode DomainSuggestionsList
 
 ``` purescript
 newtype DomainSummary
-  = DomainSummary { "DomainName" :: DomainName, "AutoRenew" :: NullOrUndefined (Boolean), "TransferLock" :: NullOrUndefined (Boolean), "Expiry" :: NullOrUndefined (Timestamp) }
+  = DomainSummary { "DomainName" :: DomainName, "AutoRenew" :: Maybe (Boolean), "TransferLock" :: Maybe (Boolean), "Expiry" :: Maybe (Timestamp) }
 ```
 
 <p>Summary information about one domain.</p>
@@ -713,7 +713,7 @@ Constructs DomainSummary from required parameters
 #### `newDomainSummary'`
 
 ``` purescript
-newDomainSummary' :: DomainName -> ({ "DomainName" :: DomainName, "AutoRenew" :: NullOrUndefined (Boolean), "TransferLock" :: NullOrUndefined (Boolean), "Expiry" :: NullOrUndefined (Timestamp) } -> { "DomainName" :: DomainName, "AutoRenew" :: NullOrUndefined (Boolean), "TransferLock" :: NullOrUndefined (Boolean), "Expiry" :: NullOrUndefined (Timestamp) }) -> DomainSummary
+newDomainSummary' :: DomainName -> ({ "DomainName" :: DomainName, "AutoRenew" :: Maybe (Boolean), "TransferLock" :: Maybe (Boolean), "Expiry" :: Maybe (Timestamp) } -> { "DomainName" :: DomainName, "AutoRenew" :: Maybe (Boolean), "TransferLock" :: Maybe (Boolean), "Expiry" :: Maybe (Timestamp) }) -> DomainSummary
 ```
 
 Constructs DomainSummary's fields from required parameters
@@ -738,7 +738,7 @@ Encode DomainSummaryList
 
 ``` purescript
 newtype DomainTransferability
-  = DomainTransferability { "Transferable" :: NullOrUndefined (Transferable) }
+  = DomainTransferability { "Transferable" :: Maybe (Transferable) }
 ```
 
 ##### Instances
@@ -761,7 +761,7 @@ Constructs DomainTransferability from required parameters
 #### `newDomainTransferability'`
 
 ``` purescript
-newDomainTransferability' :: ({ "Transferable" :: NullOrUndefined (Transferable) } -> { "Transferable" :: NullOrUndefined (Transferable) }) -> DomainTransferability
+newDomainTransferability' :: ({ "Transferable" :: Maybe (Transferable) } -> { "Transferable" :: Maybe (Transferable) }) -> DomainTransferability
 ```
 
 Constructs DomainTransferability's fields from required parameters
@@ -770,7 +770,7 @@ Constructs DomainTransferability's fields from required parameters
 
 ``` purescript
 newtype DuplicateRequest
-  = DuplicateRequest { message :: NullOrUndefined (ErrorMessage) }
+  = DuplicateRequest { message :: Maybe (ErrorMessage) }
 ```
 
 <p>The request is already in progress for the domain.</p>
@@ -795,7 +795,7 @@ Constructs DuplicateRequest from required parameters
 #### `newDuplicateRequest'`
 
 ``` purescript
-newDuplicateRequest' :: ({ message :: NullOrUndefined (ErrorMessage) } -> { message :: NullOrUndefined (ErrorMessage) }) -> DuplicateRequest
+newDuplicateRequest' :: ({ message :: Maybe (ErrorMessage) } -> { message :: Maybe (ErrorMessage) }) -> DuplicateRequest
 ```
 
 Constructs DuplicateRequest's fields from required parameters
@@ -1066,7 +1066,7 @@ Encode FIAuthKey
 
 ``` purescript
 newtype GetContactReachabilityStatusRequest
-  = GetContactReachabilityStatusRequest { domainName :: NullOrUndefined (DomainName) }
+  = GetContactReachabilityStatusRequest { domainName :: Maybe (DomainName) }
 ```
 
 ##### Instances
@@ -1089,7 +1089,7 @@ Constructs GetContactReachabilityStatusRequest from required parameters
 #### `newGetContactReachabilityStatusRequest'`
 
 ``` purescript
-newGetContactReachabilityStatusRequest' :: ({ domainName :: NullOrUndefined (DomainName) } -> { domainName :: NullOrUndefined (DomainName) }) -> GetContactReachabilityStatusRequest
+newGetContactReachabilityStatusRequest' :: ({ domainName :: Maybe (DomainName) } -> { domainName :: Maybe (DomainName) }) -> GetContactReachabilityStatusRequest
 ```
 
 Constructs GetContactReachabilityStatusRequest's fields from required parameters
@@ -1098,7 +1098,7 @@ Constructs GetContactReachabilityStatusRequest's fields from required parameters
 
 ``` purescript
 newtype GetContactReachabilityStatusResponse
-  = GetContactReachabilityStatusResponse { domainName :: NullOrUndefined (DomainName), status :: NullOrUndefined (ReachabilityStatus) }
+  = GetContactReachabilityStatusResponse { domainName :: Maybe (DomainName), status :: Maybe (ReachabilityStatus) }
 ```
 
 ##### Instances
@@ -1121,7 +1121,7 @@ Constructs GetContactReachabilityStatusResponse from required parameters
 #### `newGetContactReachabilityStatusResponse'`
 
 ``` purescript
-newGetContactReachabilityStatusResponse' :: ({ domainName :: NullOrUndefined (DomainName), status :: NullOrUndefined (ReachabilityStatus) } -> { domainName :: NullOrUndefined (DomainName), status :: NullOrUndefined (ReachabilityStatus) }) -> GetContactReachabilityStatusResponse
+newGetContactReachabilityStatusResponse' :: ({ domainName :: Maybe (DomainName), status :: Maybe (ReachabilityStatus) } -> { domainName :: Maybe (DomainName), status :: Maybe (ReachabilityStatus) }) -> GetContactReachabilityStatusResponse
 ```
 
 Constructs GetContactReachabilityStatusResponse's fields from required parameters
@@ -1164,7 +1164,7 @@ Constructs GetDomainDetailRequest's fields from required parameters
 
 ``` purescript
 newtype GetDomainDetailResponse
-  = GetDomainDetailResponse { "DomainName" :: DomainName, "Nameservers" :: NameserverList, "AutoRenew" :: NullOrUndefined (Boolean), "AdminContact" :: ContactDetail, "RegistrantContact" :: ContactDetail, "TechContact" :: ContactDetail, "AdminPrivacy" :: NullOrUndefined (Boolean), "RegistrantPrivacy" :: NullOrUndefined (Boolean), "TechPrivacy" :: NullOrUndefined (Boolean), "RegistrarName" :: NullOrUndefined (RegistrarName), "WhoIsServer" :: NullOrUndefined (RegistrarWhoIsServer), "RegistrarUrl" :: NullOrUndefined (RegistrarUrl), "AbuseContactEmail" :: NullOrUndefined (Email), "AbuseContactPhone" :: NullOrUndefined (ContactNumber), "RegistryDomainId" :: NullOrUndefined (RegistryDomainId), "CreationDate" :: NullOrUndefined (Timestamp), "UpdatedDate" :: NullOrUndefined (Timestamp), "ExpirationDate" :: NullOrUndefined (Timestamp), "Reseller" :: NullOrUndefined (Reseller), "DnsSec" :: NullOrUndefined (DNSSec), "StatusList" :: NullOrUndefined (DomainStatusList) }
+  = GetDomainDetailResponse { "DomainName" :: DomainName, "Nameservers" :: NameserverList, "AutoRenew" :: Maybe (Boolean), "AdminContact" :: ContactDetail, "RegistrantContact" :: ContactDetail, "TechContact" :: ContactDetail, "AdminPrivacy" :: Maybe (Boolean), "RegistrantPrivacy" :: Maybe (Boolean), "TechPrivacy" :: Maybe (Boolean), "RegistrarName" :: Maybe (RegistrarName), "WhoIsServer" :: Maybe (RegistrarWhoIsServer), "RegistrarUrl" :: Maybe (RegistrarUrl), "AbuseContactEmail" :: Maybe (Email), "AbuseContactPhone" :: Maybe (ContactNumber), "RegistryDomainId" :: Maybe (RegistryDomainId), "CreationDate" :: Maybe (Timestamp), "UpdatedDate" :: Maybe (Timestamp), "ExpirationDate" :: Maybe (Timestamp), "Reseller" :: Maybe (Reseller), "DnsSec" :: Maybe (DNSSec), "StatusList" :: Maybe (DomainStatusList) }
 ```
 
 <p>The GetDomainDetail response includes the following elements.</p>
@@ -1189,7 +1189,7 @@ Constructs GetDomainDetailResponse from required parameters
 #### `newGetDomainDetailResponse'`
 
 ``` purescript
-newGetDomainDetailResponse' :: ContactDetail -> DomainName -> NameserverList -> ContactDetail -> ContactDetail -> ({ "DomainName" :: DomainName, "Nameservers" :: NameserverList, "AutoRenew" :: NullOrUndefined (Boolean), "AdminContact" :: ContactDetail, "RegistrantContact" :: ContactDetail, "TechContact" :: ContactDetail, "AdminPrivacy" :: NullOrUndefined (Boolean), "RegistrantPrivacy" :: NullOrUndefined (Boolean), "TechPrivacy" :: NullOrUndefined (Boolean), "RegistrarName" :: NullOrUndefined (RegistrarName), "WhoIsServer" :: NullOrUndefined (RegistrarWhoIsServer), "RegistrarUrl" :: NullOrUndefined (RegistrarUrl), "AbuseContactEmail" :: NullOrUndefined (Email), "AbuseContactPhone" :: NullOrUndefined (ContactNumber), "RegistryDomainId" :: NullOrUndefined (RegistryDomainId), "CreationDate" :: NullOrUndefined (Timestamp), "UpdatedDate" :: NullOrUndefined (Timestamp), "ExpirationDate" :: NullOrUndefined (Timestamp), "Reseller" :: NullOrUndefined (Reseller), "DnsSec" :: NullOrUndefined (DNSSec), "StatusList" :: NullOrUndefined (DomainStatusList) } -> { "DomainName" :: DomainName, "Nameservers" :: NameserverList, "AutoRenew" :: NullOrUndefined (Boolean), "AdminContact" :: ContactDetail, "RegistrantContact" :: ContactDetail, "TechContact" :: ContactDetail, "AdminPrivacy" :: NullOrUndefined (Boolean), "RegistrantPrivacy" :: NullOrUndefined (Boolean), "TechPrivacy" :: NullOrUndefined (Boolean), "RegistrarName" :: NullOrUndefined (RegistrarName), "WhoIsServer" :: NullOrUndefined (RegistrarWhoIsServer), "RegistrarUrl" :: NullOrUndefined (RegistrarUrl), "AbuseContactEmail" :: NullOrUndefined (Email), "AbuseContactPhone" :: NullOrUndefined (ContactNumber), "RegistryDomainId" :: NullOrUndefined (RegistryDomainId), "CreationDate" :: NullOrUndefined (Timestamp), "UpdatedDate" :: NullOrUndefined (Timestamp), "ExpirationDate" :: NullOrUndefined (Timestamp), "Reseller" :: NullOrUndefined (Reseller), "DnsSec" :: NullOrUndefined (DNSSec), "StatusList" :: NullOrUndefined (DomainStatusList) }) -> GetDomainDetailResponse
+newGetDomainDetailResponse' :: ContactDetail -> DomainName -> NameserverList -> ContactDetail -> ContactDetail -> ({ "DomainName" :: DomainName, "Nameservers" :: NameserverList, "AutoRenew" :: Maybe (Boolean), "AdminContact" :: ContactDetail, "RegistrantContact" :: ContactDetail, "TechContact" :: ContactDetail, "AdminPrivacy" :: Maybe (Boolean), "RegistrantPrivacy" :: Maybe (Boolean), "TechPrivacy" :: Maybe (Boolean), "RegistrarName" :: Maybe (RegistrarName), "WhoIsServer" :: Maybe (RegistrarWhoIsServer), "RegistrarUrl" :: Maybe (RegistrarUrl), "AbuseContactEmail" :: Maybe (Email), "AbuseContactPhone" :: Maybe (ContactNumber), "RegistryDomainId" :: Maybe (RegistryDomainId), "CreationDate" :: Maybe (Timestamp), "UpdatedDate" :: Maybe (Timestamp), "ExpirationDate" :: Maybe (Timestamp), "Reseller" :: Maybe (Reseller), "DnsSec" :: Maybe (DNSSec), "StatusList" :: Maybe (DomainStatusList) } -> { "DomainName" :: DomainName, "Nameservers" :: NameserverList, "AutoRenew" :: Maybe (Boolean), "AdminContact" :: ContactDetail, "RegistrantContact" :: ContactDetail, "TechContact" :: ContactDetail, "AdminPrivacy" :: Maybe (Boolean), "RegistrantPrivacy" :: Maybe (Boolean), "TechPrivacy" :: Maybe (Boolean), "RegistrarName" :: Maybe (RegistrarName), "WhoIsServer" :: Maybe (RegistrarWhoIsServer), "RegistrarUrl" :: Maybe (RegistrarUrl), "AbuseContactEmail" :: Maybe (Email), "AbuseContactPhone" :: Maybe (ContactNumber), "RegistryDomainId" :: Maybe (RegistryDomainId), "CreationDate" :: Maybe (Timestamp), "UpdatedDate" :: Maybe (Timestamp), "ExpirationDate" :: Maybe (Timestamp), "Reseller" :: Maybe (Reseller), "DnsSec" :: Maybe (DNSSec), "StatusList" :: Maybe (DomainStatusList) }) -> GetDomainDetailResponse
 ```
 
 Constructs GetDomainDetailResponse's fields from required parameters
@@ -1230,7 +1230,7 @@ Constructs GetDomainSuggestionsRequest's fields from required parameters
 
 ``` purescript
 newtype GetDomainSuggestionsResponse
-  = GetDomainSuggestionsResponse { "SuggestionsList" :: NullOrUndefined (DomainSuggestionsList) }
+  = GetDomainSuggestionsResponse { "SuggestionsList" :: Maybe (DomainSuggestionsList) }
 ```
 
 ##### Instances
@@ -1253,7 +1253,7 @@ Constructs GetDomainSuggestionsResponse from required parameters
 #### `newGetDomainSuggestionsResponse'`
 
 ``` purescript
-newGetDomainSuggestionsResponse' :: ({ "SuggestionsList" :: NullOrUndefined (DomainSuggestionsList) } -> { "SuggestionsList" :: NullOrUndefined (DomainSuggestionsList) }) -> GetDomainSuggestionsResponse
+newGetDomainSuggestionsResponse' :: ({ "SuggestionsList" :: Maybe (DomainSuggestionsList) } -> { "SuggestionsList" :: Maybe (DomainSuggestionsList) }) -> GetDomainSuggestionsResponse
 ```
 
 Constructs GetDomainSuggestionsResponse's fields from required parameters
@@ -1296,7 +1296,7 @@ Constructs GetOperationDetailRequest's fields from required parameters
 
 ``` purescript
 newtype GetOperationDetailResponse
-  = GetOperationDetailResponse { "OperationId" :: NullOrUndefined (OperationId), "Status" :: NullOrUndefined (OperationStatus), "Message" :: NullOrUndefined (ErrorMessage), "DomainName" :: NullOrUndefined (DomainName), "Type" :: NullOrUndefined (OperationType), "SubmittedDate" :: NullOrUndefined (Timestamp) }
+  = GetOperationDetailResponse { "OperationId" :: Maybe (OperationId), "Status" :: Maybe (OperationStatus), "Message" :: Maybe (ErrorMessage), "DomainName" :: Maybe (DomainName), "Type" :: Maybe (OperationType), "SubmittedDate" :: Maybe (Timestamp) }
 ```
 
 <p>The GetOperationDetail response includes the following elements.</p>
@@ -1321,7 +1321,7 @@ Constructs GetOperationDetailResponse from required parameters
 #### `newGetOperationDetailResponse'`
 
 ``` purescript
-newGetOperationDetailResponse' :: ({ "OperationId" :: NullOrUndefined (OperationId), "Status" :: NullOrUndefined (OperationStatus), "Message" :: NullOrUndefined (ErrorMessage), "DomainName" :: NullOrUndefined (DomainName), "Type" :: NullOrUndefined (OperationType), "SubmittedDate" :: NullOrUndefined (Timestamp) } -> { "OperationId" :: NullOrUndefined (OperationId), "Status" :: NullOrUndefined (OperationStatus), "Message" :: NullOrUndefined (ErrorMessage), "DomainName" :: NullOrUndefined (DomainName), "Type" :: NullOrUndefined (OperationType), "SubmittedDate" :: NullOrUndefined (Timestamp) }) -> GetOperationDetailResponse
+newGetOperationDetailResponse' :: ({ "OperationId" :: Maybe (OperationId), "Status" :: Maybe (OperationStatus), "Message" :: Maybe (ErrorMessage), "DomainName" :: Maybe (DomainName), "Type" :: Maybe (OperationType), "SubmittedDate" :: Maybe (Timestamp) } -> { "OperationId" :: Maybe (OperationId), "Status" :: Maybe (OperationStatus), "Message" :: Maybe (ErrorMessage), "DomainName" :: Maybe (DomainName), "Type" :: Maybe (OperationType), "SubmittedDate" :: Maybe (Timestamp) }) -> GetOperationDetailResponse
 ```
 
 Constructs GetOperationDetailResponse's fields from required parameters
@@ -1378,7 +1378,7 @@ Encode HostName
 
 ``` purescript
 newtype InvalidInput
-  = InvalidInput { message :: NullOrUndefined (ErrorMessage) }
+  = InvalidInput { message :: Maybe (ErrorMessage) }
 ```
 
 <p>The requested item is not acceptable. For example, for an OperationId it might refer to the ID of an operation that is already completed. For a domain name, it might not be a valid domain name or belong to the requester account.</p>
@@ -1403,7 +1403,7 @@ Constructs InvalidInput from required parameters
 #### `newInvalidInput'`
 
 ``` purescript
-newInvalidInput' :: ({ message :: NullOrUndefined (ErrorMessage) } -> { message :: NullOrUndefined (ErrorMessage) }) -> InvalidInput
+newInvalidInput' :: ({ message :: Maybe (ErrorMessage) } -> { message :: Maybe (ErrorMessage) }) -> InvalidInput
 ```
 
 Constructs InvalidInput's fields from required parameters
@@ -1444,7 +1444,7 @@ Encode LangCode
 
 ``` purescript
 newtype ListDomainsRequest
-  = ListDomainsRequest { "Marker" :: NullOrUndefined (PageMarker), "MaxItems" :: NullOrUndefined (PageMaxItems) }
+  = ListDomainsRequest { "Marker" :: Maybe (PageMarker), "MaxItems" :: Maybe (PageMaxItems) }
 ```
 
 <p>The ListDomains request includes the following elements.</p>
@@ -1469,7 +1469,7 @@ Constructs ListDomainsRequest from required parameters
 #### `newListDomainsRequest'`
 
 ``` purescript
-newListDomainsRequest' :: ({ "Marker" :: NullOrUndefined (PageMarker), "MaxItems" :: NullOrUndefined (PageMaxItems) } -> { "Marker" :: NullOrUndefined (PageMarker), "MaxItems" :: NullOrUndefined (PageMaxItems) }) -> ListDomainsRequest
+newListDomainsRequest' :: ({ "Marker" :: Maybe (PageMarker), "MaxItems" :: Maybe (PageMaxItems) } -> { "Marker" :: Maybe (PageMarker), "MaxItems" :: Maybe (PageMaxItems) }) -> ListDomainsRequest
 ```
 
 Constructs ListDomainsRequest's fields from required parameters
@@ -1478,7 +1478,7 @@ Constructs ListDomainsRequest's fields from required parameters
 
 ``` purescript
 newtype ListDomainsResponse
-  = ListDomainsResponse { "Domains" :: DomainSummaryList, "NextPageMarker" :: NullOrUndefined (PageMarker) }
+  = ListDomainsResponse { "Domains" :: DomainSummaryList, "NextPageMarker" :: Maybe (PageMarker) }
 ```
 
 <p>The ListDomains response includes the following elements.</p>
@@ -1503,7 +1503,7 @@ Constructs ListDomainsResponse from required parameters
 #### `newListDomainsResponse'`
 
 ``` purescript
-newListDomainsResponse' :: DomainSummaryList -> ({ "Domains" :: DomainSummaryList, "NextPageMarker" :: NullOrUndefined (PageMarker) } -> { "Domains" :: DomainSummaryList, "NextPageMarker" :: NullOrUndefined (PageMarker) }) -> ListDomainsResponse
+newListDomainsResponse' :: DomainSummaryList -> ({ "Domains" :: DomainSummaryList, "NextPageMarker" :: Maybe (PageMarker) } -> { "Domains" :: DomainSummaryList, "NextPageMarker" :: Maybe (PageMarker) }) -> ListDomainsResponse
 ```
 
 Constructs ListDomainsResponse's fields from required parameters
@@ -1512,7 +1512,7 @@ Constructs ListDomainsResponse's fields from required parameters
 
 ``` purescript
 newtype ListOperationsRequest
-  = ListOperationsRequest { "Marker" :: NullOrUndefined (PageMarker), "MaxItems" :: NullOrUndefined (PageMaxItems) }
+  = ListOperationsRequest { "Marker" :: Maybe (PageMarker), "MaxItems" :: Maybe (PageMaxItems) }
 ```
 
 <p>The ListOperations request includes the following elements.</p>
@@ -1537,7 +1537,7 @@ Constructs ListOperationsRequest from required parameters
 #### `newListOperationsRequest'`
 
 ``` purescript
-newListOperationsRequest' :: ({ "Marker" :: NullOrUndefined (PageMarker), "MaxItems" :: NullOrUndefined (PageMaxItems) } -> { "Marker" :: NullOrUndefined (PageMarker), "MaxItems" :: NullOrUndefined (PageMaxItems) }) -> ListOperationsRequest
+newListOperationsRequest' :: ({ "Marker" :: Maybe (PageMarker), "MaxItems" :: Maybe (PageMaxItems) } -> { "Marker" :: Maybe (PageMarker), "MaxItems" :: Maybe (PageMaxItems) }) -> ListOperationsRequest
 ```
 
 Constructs ListOperationsRequest's fields from required parameters
@@ -1546,7 +1546,7 @@ Constructs ListOperationsRequest's fields from required parameters
 
 ``` purescript
 newtype ListOperationsResponse
-  = ListOperationsResponse { "Operations" :: OperationSummaryList, "NextPageMarker" :: NullOrUndefined (PageMarker) }
+  = ListOperationsResponse { "Operations" :: OperationSummaryList, "NextPageMarker" :: Maybe (PageMarker) }
 ```
 
 <p>The ListOperations response includes the following elements.</p>
@@ -1571,7 +1571,7 @@ Constructs ListOperationsResponse from required parameters
 #### `newListOperationsResponse'`
 
 ``` purescript
-newListOperationsResponse' :: OperationSummaryList -> ({ "Operations" :: OperationSummaryList, "NextPageMarker" :: NullOrUndefined (PageMarker) } -> { "Operations" :: OperationSummaryList, "NextPageMarker" :: NullOrUndefined (PageMarker) }) -> ListOperationsResponse
+newListOperationsResponse' :: OperationSummaryList -> ({ "Operations" :: OperationSummaryList, "NextPageMarker" :: Maybe (PageMarker) } -> { "Operations" :: OperationSummaryList, "NextPageMarker" :: Maybe (PageMarker) }) -> ListOperationsResponse
 ```
 
 Constructs ListOperationsResponse's fields from required parameters
@@ -1648,7 +1648,7 @@ Constructs ListTagsForDomainResponse's fields from required parameters
 
 ``` purescript
 newtype Nameserver
-  = Nameserver { "Name" :: HostName, "GlueIps" :: NullOrUndefined (GlueIpList) }
+  = Nameserver { "Name" :: HostName, "GlueIps" :: Maybe (GlueIpList) }
 ```
 
 <p>Nameserver includes the following elements.</p>
@@ -1673,7 +1673,7 @@ Constructs Nameserver from required parameters
 #### `newNameserver'`
 
 ``` purescript
-newNameserver' :: HostName -> ({ "Name" :: HostName, "GlueIps" :: NullOrUndefined (GlueIpList) } -> { "Name" :: HostName, "GlueIps" :: NullOrUndefined (GlueIpList) }) -> Nameserver
+newNameserver' :: HostName -> ({ "Name" :: HostName, "GlueIps" :: Maybe (GlueIpList) } -> { "Name" :: HostName, "GlueIps" :: Maybe (GlueIpList) }) -> Nameserver
 ```
 
 Constructs Nameserver's fields from required parameters
@@ -1714,7 +1714,7 @@ Encode OperationId
 
 ``` purescript
 newtype OperationLimitExceeded
-  = OperationLimitExceeded { message :: NullOrUndefined (ErrorMessage) }
+  = OperationLimitExceeded { message :: Maybe (ErrorMessage) }
 ```
 
 <p>The number of operations or jobs running exceeded the allowed threshold for the account.</p>
@@ -1739,7 +1739,7 @@ Constructs OperationLimitExceeded from required parameters
 #### `newOperationLimitExceeded'`
 
 ``` purescript
-newOperationLimitExceeded' :: ({ message :: NullOrUndefined (ErrorMessage) } -> { message :: NullOrUndefined (ErrorMessage) }) -> OperationLimitExceeded
+newOperationLimitExceeded' :: ({ message :: Maybe (ErrorMessage) } -> { message :: Maybe (ErrorMessage) }) -> OperationLimitExceeded
 ```
 
 Constructs OperationLimitExceeded's fields from required parameters
@@ -1894,7 +1894,7 @@ Encode ReachabilityStatus
 
 ``` purescript
 newtype RegisterDomainRequest
-  = RegisterDomainRequest { "DomainName" :: DomainName, "IdnLangCode" :: NullOrUndefined (LangCode), "DurationInYears" :: DurationInYears, "AutoRenew" :: NullOrUndefined (Boolean), "AdminContact" :: ContactDetail, "RegistrantContact" :: ContactDetail, "TechContact" :: ContactDetail, "PrivacyProtectAdminContact" :: NullOrUndefined (Boolean), "PrivacyProtectRegistrantContact" :: NullOrUndefined (Boolean), "PrivacyProtectTechContact" :: NullOrUndefined (Boolean) }
+  = RegisterDomainRequest { "DomainName" :: DomainName, "IdnLangCode" :: Maybe (LangCode), "DurationInYears" :: DurationInYears, "AutoRenew" :: Maybe (Boolean), "AdminContact" :: ContactDetail, "RegistrantContact" :: ContactDetail, "TechContact" :: ContactDetail, "PrivacyProtectAdminContact" :: Maybe (Boolean), "PrivacyProtectRegistrantContact" :: Maybe (Boolean), "PrivacyProtectTechContact" :: Maybe (Boolean) }
 ```
 
 <p>The RegisterDomain request includes the following elements.</p>
@@ -1919,7 +1919,7 @@ Constructs RegisterDomainRequest from required parameters
 #### `newRegisterDomainRequest'`
 
 ``` purescript
-newRegisterDomainRequest' :: ContactDetail -> DomainName -> DurationInYears -> ContactDetail -> ContactDetail -> ({ "DomainName" :: DomainName, "IdnLangCode" :: NullOrUndefined (LangCode), "DurationInYears" :: DurationInYears, "AutoRenew" :: NullOrUndefined (Boolean), "AdminContact" :: ContactDetail, "RegistrantContact" :: ContactDetail, "TechContact" :: ContactDetail, "PrivacyProtectAdminContact" :: NullOrUndefined (Boolean), "PrivacyProtectRegistrantContact" :: NullOrUndefined (Boolean), "PrivacyProtectTechContact" :: NullOrUndefined (Boolean) } -> { "DomainName" :: DomainName, "IdnLangCode" :: NullOrUndefined (LangCode), "DurationInYears" :: DurationInYears, "AutoRenew" :: NullOrUndefined (Boolean), "AdminContact" :: ContactDetail, "RegistrantContact" :: ContactDetail, "TechContact" :: ContactDetail, "PrivacyProtectAdminContact" :: NullOrUndefined (Boolean), "PrivacyProtectRegistrantContact" :: NullOrUndefined (Boolean), "PrivacyProtectTechContact" :: NullOrUndefined (Boolean) }) -> RegisterDomainRequest
+newRegisterDomainRequest' :: ContactDetail -> DomainName -> DurationInYears -> ContactDetail -> ContactDetail -> ({ "DomainName" :: DomainName, "IdnLangCode" :: Maybe (LangCode), "DurationInYears" :: DurationInYears, "AutoRenew" :: Maybe (Boolean), "AdminContact" :: ContactDetail, "RegistrantContact" :: ContactDetail, "TechContact" :: ContactDetail, "PrivacyProtectAdminContact" :: Maybe (Boolean), "PrivacyProtectRegistrantContact" :: Maybe (Boolean), "PrivacyProtectTechContact" :: Maybe (Boolean) } -> { "DomainName" :: DomainName, "IdnLangCode" :: Maybe (LangCode), "DurationInYears" :: DurationInYears, "AutoRenew" :: Maybe (Boolean), "AdminContact" :: ContactDetail, "RegistrantContact" :: ContactDetail, "TechContact" :: ContactDetail, "PrivacyProtectAdminContact" :: Maybe (Boolean), "PrivacyProtectRegistrantContact" :: Maybe (Boolean), "PrivacyProtectTechContact" :: Maybe (Boolean) }) -> RegisterDomainRequest
 ```
 
 Constructs RegisterDomainRequest's fields from required parameters
@@ -2026,7 +2026,7 @@ Encode RegistryDomainId
 
 ``` purescript
 newtype RenewDomainRequest
-  = RenewDomainRequest { "DomainName" :: DomainName, "DurationInYears" :: NullOrUndefined (DurationInYears), "CurrentExpiryYear" :: CurrentExpiryYear }
+  = RenewDomainRequest { "DomainName" :: DomainName, "DurationInYears" :: Maybe (DurationInYears), "CurrentExpiryYear" :: CurrentExpiryYear }
 ```
 
 <p>A <code>RenewDomain</code> request includes the number of years that you want to renew for and the current expiration year.</p>
@@ -2051,7 +2051,7 @@ Constructs RenewDomainRequest from required parameters
 #### `newRenewDomainRequest'`
 
 ``` purescript
-newRenewDomainRequest' :: CurrentExpiryYear -> DomainName -> ({ "DomainName" :: DomainName, "DurationInYears" :: NullOrUndefined (DurationInYears), "CurrentExpiryYear" :: CurrentExpiryYear } -> { "DomainName" :: DomainName, "DurationInYears" :: NullOrUndefined (DurationInYears), "CurrentExpiryYear" :: CurrentExpiryYear }) -> RenewDomainRequest
+newRenewDomainRequest' :: CurrentExpiryYear -> DomainName -> ({ "DomainName" :: DomainName, "DurationInYears" :: Maybe (DurationInYears), "CurrentExpiryYear" :: CurrentExpiryYear } -> { "DomainName" :: DomainName, "DurationInYears" :: Maybe (DurationInYears), "CurrentExpiryYear" :: CurrentExpiryYear }) -> RenewDomainRequest
 ```
 
 Constructs RenewDomainRequest's fields from required parameters
@@ -2108,7 +2108,7 @@ Encode Reseller
 
 ``` purescript
 newtype ResendContactReachabilityEmailRequest
-  = ResendContactReachabilityEmailRequest { domainName :: NullOrUndefined (DomainName) }
+  = ResendContactReachabilityEmailRequest { domainName :: Maybe (DomainName) }
 ```
 
 ##### Instances
@@ -2131,7 +2131,7 @@ Constructs ResendContactReachabilityEmailRequest from required parameters
 #### `newResendContactReachabilityEmailRequest'`
 
 ``` purescript
-newResendContactReachabilityEmailRequest' :: ({ domainName :: NullOrUndefined (DomainName) } -> { domainName :: NullOrUndefined (DomainName) }) -> ResendContactReachabilityEmailRequest
+newResendContactReachabilityEmailRequest' :: ({ domainName :: Maybe (DomainName) } -> { domainName :: Maybe (DomainName) }) -> ResendContactReachabilityEmailRequest
 ```
 
 Constructs ResendContactReachabilityEmailRequest's fields from required parameters
@@ -2140,7 +2140,7 @@ Constructs ResendContactReachabilityEmailRequest's fields from required paramete
 
 ``` purescript
 newtype ResendContactReachabilityEmailResponse
-  = ResendContactReachabilityEmailResponse { domainName :: NullOrUndefined (DomainName), emailAddress :: NullOrUndefined (Email), isAlreadyVerified :: NullOrUndefined (Boolean) }
+  = ResendContactReachabilityEmailResponse { domainName :: Maybe (DomainName), emailAddress :: Maybe (Email), isAlreadyVerified :: Maybe (Boolean) }
 ```
 
 ##### Instances
@@ -2163,7 +2163,7 @@ Constructs ResendContactReachabilityEmailResponse from required parameters
 #### `newResendContactReachabilityEmailResponse'`
 
 ``` purescript
-newResendContactReachabilityEmailResponse' :: ({ domainName :: NullOrUndefined (DomainName), emailAddress :: NullOrUndefined (Email), isAlreadyVerified :: NullOrUndefined (Boolean) } -> { domainName :: NullOrUndefined (DomainName), emailAddress :: NullOrUndefined (Email), isAlreadyVerified :: NullOrUndefined (Boolean) }) -> ResendContactReachabilityEmailResponse
+newResendContactReachabilityEmailResponse' :: ({ domainName :: Maybe (DomainName), emailAddress :: Maybe (Email), isAlreadyVerified :: Maybe (Boolean) } -> { domainName :: Maybe (DomainName), emailAddress :: Maybe (Email), isAlreadyVerified :: Maybe (Boolean) }) -> ResendContactReachabilityEmailResponse
 ```
 
 Constructs ResendContactReachabilityEmailResponse's fields from required parameters
@@ -2256,7 +2256,7 @@ Encode State
 
 ``` purescript
 newtype TLDRulesViolation
-  = TLDRulesViolation { message :: NullOrUndefined (ErrorMessage) }
+  = TLDRulesViolation { message :: Maybe (ErrorMessage) }
 ```
 
 <p>The top-level domain does not support this operation.</p>
@@ -2281,7 +2281,7 @@ Constructs TLDRulesViolation from required parameters
 #### `newTLDRulesViolation'`
 
 ``` purescript
-newTLDRulesViolation' :: ({ message :: NullOrUndefined (ErrorMessage) } -> { message :: NullOrUndefined (ErrorMessage) }) -> TLDRulesViolation
+newTLDRulesViolation' :: ({ message :: Maybe (ErrorMessage) } -> { message :: Maybe (ErrorMessage) }) -> TLDRulesViolation
 ```
 
 Constructs TLDRulesViolation's fields from required parameters
@@ -2290,7 +2290,7 @@ Constructs TLDRulesViolation's fields from required parameters
 
 ``` purescript
 newtype Tag
-  = Tag { "Key" :: NullOrUndefined (TagKey), "Value" :: NullOrUndefined (TagValue) }
+  = Tag { "Key" :: Maybe (TagKey), "Value" :: Maybe (TagValue) }
 ```
 
 <p>Each tag includes the following elements.</p>
@@ -2315,7 +2315,7 @@ Constructs Tag from required parameters
 #### `newTag'`
 
 ``` purescript
-newTag' :: ({ "Key" :: NullOrUndefined (TagKey), "Value" :: NullOrUndefined (TagValue) } -> { "Key" :: NullOrUndefined (TagKey), "Value" :: NullOrUndefined (TagValue) }) -> Tag
+newTag' :: ({ "Key" :: Maybe (TagKey), "Value" :: Maybe (TagValue) } -> { "Key" :: Maybe (TagKey), "Value" :: Maybe (TagValue) }) -> Tag
 ```
 
 Constructs Tag's fields from required parameters
@@ -2388,7 +2388,7 @@ Encode TagValue
 
 ``` purescript
 newtype TransferDomainRequest
-  = TransferDomainRequest { "DomainName" :: DomainName, "IdnLangCode" :: NullOrUndefined (LangCode), "DurationInYears" :: DurationInYears, "Nameservers" :: NullOrUndefined (NameserverList), "AuthCode" :: NullOrUndefined (DomainAuthCode), "AutoRenew" :: NullOrUndefined (Boolean), "AdminContact" :: ContactDetail, "RegistrantContact" :: ContactDetail, "TechContact" :: ContactDetail, "PrivacyProtectAdminContact" :: NullOrUndefined (Boolean), "PrivacyProtectRegistrantContact" :: NullOrUndefined (Boolean), "PrivacyProtectTechContact" :: NullOrUndefined (Boolean) }
+  = TransferDomainRequest { "DomainName" :: DomainName, "IdnLangCode" :: Maybe (LangCode), "DurationInYears" :: DurationInYears, "Nameservers" :: Maybe (NameserverList), "AuthCode" :: Maybe (DomainAuthCode), "AutoRenew" :: Maybe (Boolean), "AdminContact" :: ContactDetail, "RegistrantContact" :: ContactDetail, "TechContact" :: ContactDetail, "PrivacyProtectAdminContact" :: Maybe (Boolean), "PrivacyProtectRegistrantContact" :: Maybe (Boolean), "PrivacyProtectTechContact" :: Maybe (Boolean) }
 ```
 
 <p>The TransferDomain request includes the following elements.</p>
@@ -2413,7 +2413,7 @@ Constructs TransferDomainRequest from required parameters
 #### `newTransferDomainRequest'`
 
 ``` purescript
-newTransferDomainRequest' :: ContactDetail -> DomainName -> DurationInYears -> ContactDetail -> ContactDetail -> ({ "DomainName" :: DomainName, "IdnLangCode" :: NullOrUndefined (LangCode), "DurationInYears" :: DurationInYears, "Nameservers" :: NullOrUndefined (NameserverList), "AuthCode" :: NullOrUndefined (DomainAuthCode), "AutoRenew" :: NullOrUndefined (Boolean), "AdminContact" :: ContactDetail, "RegistrantContact" :: ContactDetail, "TechContact" :: ContactDetail, "PrivacyProtectAdminContact" :: NullOrUndefined (Boolean), "PrivacyProtectRegistrantContact" :: NullOrUndefined (Boolean), "PrivacyProtectTechContact" :: NullOrUndefined (Boolean) } -> { "DomainName" :: DomainName, "IdnLangCode" :: NullOrUndefined (LangCode), "DurationInYears" :: DurationInYears, "Nameservers" :: NullOrUndefined (NameserverList), "AuthCode" :: NullOrUndefined (DomainAuthCode), "AutoRenew" :: NullOrUndefined (Boolean), "AdminContact" :: ContactDetail, "RegistrantContact" :: ContactDetail, "TechContact" :: ContactDetail, "PrivacyProtectAdminContact" :: NullOrUndefined (Boolean), "PrivacyProtectRegistrantContact" :: NullOrUndefined (Boolean), "PrivacyProtectTechContact" :: NullOrUndefined (Boolean) }) -> TransferDomainRequest
+newTransferDomainRequest' :: ContactDetail -> DomainName -> DurationInYears -> ContactDetail -> ContactDetail -> ({ "DomainName" :: DomainName, "IdnLangCode" :: Maybe (LangCode), "DurationInYears" :: DurationInYears, "Nameservers" :: Maybe (NameserverList), "AuthCode" :: Maybe (DomainAuthCode), "AutoRenew" :: Maybe (Boolean), "AdminContact" :: ContactDetail, "RegistrantContact" :: ContactDetail, "TechContact" :: ContactDetail, "PrivacyProtectAdminContact" :: Maybe (Boolean), "PrivacyProtectRegistrantContact" :: Maybe (Boolean), "PrivacyProtectTechContact" :: Maybe (Boolean) } -> { "DomainName" :: DomainName, "IdnLangCode" :: Maybe (LangCode), "DurationInYears" :: DurationInYears, "Nameservers" :: Maybe (NameserverList), "AuthCode" :: Maybe (DomainAuthCode), "AutoRenew" :: Maybe (Boolean), "AdminContact" :: ContactDetail, "RegistrantContact" :: ContactDetail, "TechContact" :: ContactDetail, "PrivacyProtectAdminContact" :: Maybe (Boolean), "PrivacyProtectRegistrantContact" :: Maybe (Boolean), "PrivacyProtectTechContact" :: Maybe (Boolean) }) -> TransferDomainRequest
 ```
 
 Constructs TransferDomainRequest's fields from required parameters
@@ -2474,7 +2474,7 @@ Encode Transferable
 
 ``` purescript
 newtype UnsupportedTLD
-  = UnsupportedTLD { message :: NullOrUndefined (ErrorMessage) }
+  = UnsupportedTLD { message :: Maybe (ErrorMessage) }
 ```
 
 <p>Amazon Route 53 does not support this top-level domain (TLD).</p>
@@ -2499,7 +2499,7 @@ Constructs UnsupportedTLD from required parameters
 #### `newUnsupportedTLD'`
 
 ``` purescript
-newUnsupportedTLD' :: ({ message :: NullOrUndefined (ErrorMessage) } -> { message :: NullOrUndefined (ErrorMessage) }) -> UnsupportedTLD
+newUnsupportedTLD' :: ({ message :: Maybe (ErrorMessage) } -> { message :: Maybe (ErrorMessage) }) -> UnsupportedTLD
 ```
 
 Constructs UnsupportedTLD's fields from required parameters
@@ -2508,7 +2508,7 @@ Constructs UnsupportedTLD's fields from required parameters
 
 ``` purescript
 newtype UpdateDomainContactPrivacyRequest
-  = UpdateDomainContactPrivacyRequest { "DomainName" :: DomainName, "AdminPrivacy" :: NullOrUndefined (Boolean), "RegistrantPrivacy" :: NullOrUndefined (Boolean), "TechPrivacy" :: NullOrUndefined (Boolean) }
+  = UpdateDomainContactPrivacyRequest { "DomainName" :: DomainName, "AdminPrivacy" :: Maybe (Boolean), "RegistrantPrivacy" :: Maybe (Boolean), "TechPrivacy" :: Maybe (Boolean) }
 ```
 
 <p>The UpdateDomainContactPrivacy request includes the following elements.</p>
@@ -2533,7 +2533,7 @@ Constructs UpdateDomainContactPrivacyRequest from required parameters
 #### `newUpdateDomainContactPrivacyRequest'`
 
 ``` purescript
-newUpdateDomainContactPrivacyRequest' :: DomainName -> ({ "DomainName" :: DomainName, "AdminPrivacy" :: NullOrUndefined (Boolean), "RegistrantPrivacy" :: NullOrUndefined (Boolean), "TechPrivacy" :: NullOrUndefined (Boolean) } -> { "DomainName" :: DomainName, "AdminPrivacy" :: NullOrUndefined (Boolean), "RegistrantPrivacy" :: NullOrUndefined (Boolean), "TechPrivacy" :: NullOrUndefined (Boolean) }) -> UpdateDomainContactPrivacyRequest
+newUpdateDomainContactPrivacyRequest' :: DomainName -> ({ "DomainName" :: DomainName, "AdminPrivacy" :: Maybe (Boolean), "RegistrantPrivacy" :: Maybe (Boolean), "TechPrivacy" :: Maybe (Boolean) } -> { "DomainName" :: DomainName, "AdminPrivacy" :: Maybe (Boolean), "RegistrantPrivacy" :: Maybe (Boolean), "TechPrivacy" :: Maybe (Boolean) }) -> UpdateDomainContactPrivacyRequest
 ```
 
 Constructs UpdateDomainContactPrivacyRequest's fields from required parameters
@@ -2576,7 +2576,7 @@ Constructs UpdateDomainContactPrivacyResponse's fields from required parameters
 
 ``` purescript
 newtype UpdateDomainContactRequest
-  = UpdateDomainContactRequest { "DomainName" :: DomainName, "AdminContact" :: NullOrUndefined (ContactDetail), "RegistrantContact" :: NullOrUndefined (ContactDetail), "TechContact" :: NullOrUndefined (ContactDetail) }
+  = UpdateDomainContactRequest { "DomainName" :: DomainName, "AdminContact" :: Maybe (ContactDetail), "RegistrantContact" :: Maybe (ContactDetail), "TechContact" :: Maybe (ContactDetail) }
 ```
 
 <p>The UpdateDomainContact request includes the following elements.</p>
@@ -2601,7 +2601,7 @@ Constructs UpdateDomainContactRequest from required parameters
 #### `newUpdateDomainContactRequest'`
 
 ``` purescript
-newUpdateDomainContactRequest' :: DomainName -> ({ "DomainName" :: DomainName, "AdminContact" :: NullOrUndefined (ContactDetail), "RegistrantContact" :: NullOrUndefined (ContactDetail), "TechContact" :: NullOrUndefined (ContactDetail) } -> { "DomainName" :: DomainName, "AdminContact" :: NullOrUndefined (ContactDetail), "RegistrantContact" :: NullOrUndefined (ContactDetail), "TechContact" :: NullOrUndefined (ContactDetail) }) -> UpdateDomainContactRequest
+newUpdateDomainContactRequest' :: DomainName -> ({ "DomainName" :: DomainName, "AdminContact" :: Maybe (ContactDetail), "RegistrantContact" :: Maybe (ContactDetail), "TechContact" :: Maybe (ContactDetail) } -> { "DomainName" :: DomainName, "AdminContact" :: Maybe (ContactDetail), "RegistrantContact" :: Maybe (ContactDetail), "TechContact" :: Maybe (ContactDetail) }) -> UpdateDomainContactRequest
 ```
 
 Constructs UpdateDomainContactRequest's fields from required parameters
@@ -2644,7 +2644,7 @@ Constructs UpdateDomainContactResponse's fields from required parameters
 
 ``` purescript
 newtype UpdateDomainNameserversRequest
-  = UpdateDomainNameserversRequest { "DomainName" :: DomainName, "FIAuthKey" :: NullOrUndefined (FIAuthKey), "Nameservers" :: NameserverList }
+  = UpdateDomainNameserversRequest { "DomainName" :: DomainName, "FIAuthKey" :: Maybe (FIAuthKey), "Nameservers" :: NameserverList }
 ```
 
 <p>Replaces the current set of name servers for the domain with the specified set of name servers. If you use Amazon Route 53 as your DNS service, specify the four name servers in the delegation set for the hosted zone for the domain.</p> <p>If successful, this operation returns an operation ID that you can use to track the progress and completion of the action. If the request is not completed successfully, the domain registrant will be notified by email. </p>
@@ -2669,7 +2669,7 @@ Constructs UpdateDomainNameserversRequest from required parameters
 #### `newUpdateDomainNameserversRequest'`
 
 ``` purescript
-newUpdateDomainNameserversRequest' :: DomainName -> NameserverList -> ({ "DomainName" :: DomainName, "FIAuthKey" :: NullOrUndefined (FIAuthKey), "Nameservers" :: NameserverList } -> { "DomainName" :: DomainName, "FIAuthKey" :: NullOrUndefined (FIAuthKey), "Nameservers" :: NameserverList }) -> UpdateDomainNameserversRequest
+newUpdateDomainNameserversRequest' :: DomainName -> NameserverList -> ({ "DomainName" :: DomainName, "FIAuthKey" :: Maybe (FIAuthKey), "Nameservers" :: NameserverList } -> { "DomainName" :: DomainName, "FIAuthKey" :: Maybe (FIAuthKey), "Nameservers" :: NameserverList }) -> UpdateDomainNameserversRequest
 ```
 
 Constructs UpdateDomainNameserversRequest's fields from required parameters
@@ -2712,7 +2712,7 @@ Constructs UpdateDomainNameserversResponse's fields from required parameters
 
 ``` purescript
 newtype UpdateTagsForDomainRequest
-  = UpdateTagsForDomainRequest { "DomainName" :: DomainName, "TagsToUpdate" :: NullOrUndefined (TagList) }
+  = UpdateTagsForDomainRequest { "DomainName" :: DomainName, "TagsToUpdate" :: Maybe (TagList) }
 ```
 
 <p>The UpdateTagsForDomainRequest includes the following elements.</p>
@@ -2737,7 +2737,7 @@ Constructs UpdateTagsForDomainRequest from required parameters
 #### `newUpdateTagsForDomainRequest'`
 
 ``` purescript
-newUpdateTagsForDomainRequest' :: DomainName -> ({ "DomainName" :: DomainName, "TagsToUpdate" :: NullOrUndefined (TagList) } -> { "DomainName" :: DomainName, "TagsToUpdate" :: NullOrUndefined (TagList) }) -> UpdateTagsForDomainRequest
+newUpdateTagsForDomainRequest' :: DomainName -> ({ "DomainName" :: DomainName, "TagsToUpdate" :: Maybe (TagList) } -> { "DomainName" :: DomainName, "TagsToUpdate" :: Maybe (TagList) }) -> UpdateTagsForDomainRequest
 ```
 
 Constructs UpdateTagsForDomainRequest's fields from required parameters
@@ -2762,7 +2762,7 @@ Encode UpdateTagsForDomainResponse
 
 ``` purescript
 newtype ViewBillingRequest
-  = ViewBillingRequest { "Start" :: NullOrUndefined (Timestamp), "End" :: NullOrUndefined (Timestamp), "Marker" :: NullOrUndefined (PageMarker), "MaxItems" :: NullOrUndefined (PageMaxItems) }
+  = ViewBillingRequest { "Start" :: Maybe (Timestamp), "End" :: Maybe (Timestamp), "Marker" :: Maybe (PageMarker), "MaxItems" :: Maybe (PageMaxItems) }
 ```
 
 <p>The ViewBilling request includes the following elements.</p>
@@ -2787,7 +2787,7 @@ Constructs ViewBillingRequest from required parameters
 #### `newViewBillingRequest'`
 
 ``` purescript
-newViewBillingRequest' :: ({ "Start" :: NullOrUndefined (Timestamp), "End" :: NullOrUndefined (Timestamp), "Marker" :: NullOrUndefined (PageMarker), "MaxItems" :: NullOrUndefined (PageMaxItems) } -> { "Start" :: NullOrUndefined (Timestamp), "End" :: NullOrUndefined (Timestamp), "Marker" :: NullOrUndefined (PageMarker), "MaxItems" :: NullOrUndefined (PageMaxItems) }) -> ViewBillingRequest
+newViewBillingRequest' :: ({ "Start" :: Maybe (Timestamp), "End" :: Maybe (Timestamp), "Marker" :: Maybe (PageMarker), "MaxItems" :: Maybe (PageMaxItems) } -> { "Start" :: Maybe (Timestamp), "End" :: Maybe (Timestamp), "Marker" :: Maybe (PageMarker), "MaxItems" :: Maybe (PageMaxItems) }) -> ViewBillingRequest
 ```
 
 Constructs ViewBillingRequest's fields from required parameters
@@ -2796,7 +2796,7 @@ Constructs ViewBillingRequest's fields from required parameters
 
 ``` purescript
 newtype ViewBillingResponse
-  = ViewBillingResponse { "NextPageMarker" :: NullOrUndefined (PageMarker), "BillingRecords" :: NullOrUndefined (BillingRecords) }
+  = ViewBillingResponse { "NextPageMarker" :: Maybe (PageMarker), "BillingRecords" :: Maybe (BillingRecords) }
 ```
 
 <p>The ViewBilling response includes the following elements.</p>
@@ -2821,7 +2821,7 @@ Constructs ViewBillingResponse from required parameters
 #### `newViewBillingResponse'`
 
 ``` purescript
-newViewBillingResponse' :: ({ "NextPageMarker" :: NullOrUndefined (PageMarker), "BillingRecords" :: NullOrUndefined (BillingRecords) } -> { "NextPageMarker" :: NullOrUndefined (PageMarker), "BillingRecords" :: NullOrUndefined (BillingRecords) }) -> ViewBillingResponse
+newViewBillingResponse' :: ({ "NextPageMarker" :: Maybe (PageMarker), "BillingRecords" :: Maybe (BillingRecords) } -> { "NextPageMarker" :: Maybe (PageMarker), "BillingRecords" :: Maybe (BillingRecords) }) -> ViewBillingResponse
 ```
 
 Constructs ViewBillingResponse's fields from required parameters
